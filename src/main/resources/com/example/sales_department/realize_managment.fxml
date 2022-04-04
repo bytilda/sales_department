@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="696.0" prefWidth="1232.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.RealizeManagment">
+   <children>
+      <Text layoutX="14.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Реализация" />
+      <Text layoutX="759.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фильтры" />
+      <TextArea layoutX="757.0" layoutY="42.0" prefHeight="218.0" prefWidth="440.0" />
+      <DatePicker layoutX="771.0" layoutY="123.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField layoutX="771.0" layoutY="170.0" prefHeight="25.0" prefWidth="215.0" />
+      <Text layoutX="771.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Статус оплаты" />
+      <Text layoutX="770.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер УПД" />
+      <Text layoutX="771.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата" />
+      <ComboBox layoutX="771.0" layoutY="81.0" prefHeight="25.0" prefWidth="215.0" />
+      <ComboBox layoutX="771.0" layoutY="217.0" prefHeight="25.0" prefWidth="215.0" />
+      <Text layoutX="770.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Покупатель" />
+      <TableView layoutX="9.0" layoutY="274.0" prefHeight="283.0" prefWidth="1188.0">
+        <columns>
+          <TableColumn prefWidth="139.0" text="Статус оплаты" />
+          <TableColumn prefWidth="150.0" text="Дата" />
+            <TableColumn prefWidth="119.0" text="Номер УПД" />
+            <TableColumn prefWidth="262.0" text="Покупатель" />
+            <TableColumn prefWidth="258.0" text="Фактическое время отгрузки со склада" />
+            <TableColumn prefWidth="258.0" text="Адрес грузополучателя" />
+        </columns>
+      </TableView>
+      <Button layoutX="1124.0" layoutY="217.0" mnemonicParsing="false" text="поиск" />
+      <Button layoutX="12.0" layoutY="576.0" mnemonicParsing="false" text="Добавить" />
+      <Button layoutX="107.0" layoutY="576.0" mnemonicParsing="false" text="Редактировать" />
+      <Button layoutX="233.0" layoutY="576.0" mnemonicParsing="false" text="Просмотр" />
+      <Button layoutX="1137.0" layoutY="576.0" mnemonicParsing="false" text="Удалить" />
+   </children>
+</AnchorPane>
