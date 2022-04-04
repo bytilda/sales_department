@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="659.0" prefWidth="1211.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.ContractManagment">
+   <children>
+      <Text layoutX="22.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Договоры" wrappingWidth="295.13671875" />
+      <Text layoutX="40.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фильтры" />
+      <TextArea layoutX="40.0" layoutY="122.0" prefHeight="200.0" prefWidth="431.0" />
+      <DatePicker layoutX="67.0" layoutY="197.0" />
+      <TableView layoutX="40.0" layoutY="335.0" prefHeight="200.0" prefWidth="1071.0">
+        <columns>
+          <TableColumn prefWidth="202.0" text="Номер договора" />
+          <TableColumn minWidth="0.0" prefWidth="229.0" text="Дата заключения" />
+            <TableColumn prefWidth="202.0" text="Контрагент" />
+            <TableColumn prefWidth="240.0" text="Дата вступления договора в силу" />
+            <TableColumn prefWidth="197.0" text="Договор действителен до" />
+        </columns>
+      </TableView>
+      <Spinner layoutX="67.0" layoutY="145.0" />
+      <Button layoutX="40.0" layoutY="589.0" mnemonicParsing="false" text="Добавить" />
+      <Button layoutX="154.0" layoutY="589.0" mnemonicParsing="false" text="Просмотреть" />
+      <Button layoutX="1051.0" layoutY="589.0" mnemonicParsing="false" text="Удалить" />
+      <TextField layoutX="67.0" layoutY="261.0" />
+      <Text layoutX="67.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата заключения" />
+      <Text layoutX="67.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер договора" />
+      <Text layoutX="64.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Контрагент" />
+      <Button layoutX="285.0" layoutY="589.0" mnemonicParsing="false" text="Редактировать" />
+      <DatePicker layoutX="271.0" layoutY="145.0" />
+      <Text layoutX="271.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата вступления договора в силу" />
+      <Text layoutX="271.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Договор действителен до" />
+      <DatePicker layoutX="271.0" layoutY="197.0" />
+      <Button layoutX="396.0" layoutY="261.0" mnemonicParsing="false" text="поиск" />
+   </children>
+</AnchorPane>
