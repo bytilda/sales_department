@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="946.0" prefWidth="1305.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.OrderManagment">
    <children>
       <TableView layoutX="4.0" layoutY="230.0" prefHeight="497.0" prefWidth="1298.0">
