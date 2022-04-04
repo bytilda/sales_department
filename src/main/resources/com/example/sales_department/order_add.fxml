@@ -36,7 +36,7 @@
             <DatePicker layoutX="179.0" layoutY="261.0" />
          </children>
       </AnchorPane>
-      <Button layoutX="395.0" layoutY="682.0" mnemonicParsing="false" text="Добавить" />
+      <Button layoutX="228.0" layoutY="717.0" mnemonicParsing="false" text="Добавить" />
       <TableView layoutX="228.0" layoutY="465.0" prefHeight="200.0" prefWidth="685.0">
         <columns>
           <TableColumn prefWidth="129.0" text="Шифр товара" />
@@ -49,5 +49,6 @@
       <Label layoutX="395.0" layoutY="436.0" text="Список товаров" />
       <Label layoutX="818.0" layoutY="665.0" text="ИТОГО" />
       <Label layoutX="868.0" layoutY="665.0" text="0.00" />
+      <Button layoutX="845.0" layoutY="717.0" mnemonicParsing="false" text="Отменить" />
    </children>
 </AnchorPane>
