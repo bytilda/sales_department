@@ -18,7 +18,7 @@
             <Font size="29.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="384.0" layoutY="65.0" prefHeight="354.0" prefWidth="375.0">
+      <AnchorPane layoutX="206.0" layoutY="65.0" prefHeight="553.0" prefWidth="712.0">
          <children>
             <Label layoutX="14.0" layoutY="36.0" text="Номер заказа" />
             <Label layoutX="14.0" layoutY="75.0" text="Дата поступления" />
@@ -34,21 +34,21 @@
             <Label layoutX="17.0" layoutY="265.0" text="Окончкание поставки" />
             <DatePicker layoutX="179.0" layoutY="230.0" />
             <DatePicker layoutX="179.0" layoutY="261.0" />
+            <Label layoutX="19.0" layoutY="294.0" text="Список товаров" />
+            <TableView layoutX="17.0" layoutY="317.0" prefHeight="200.0" prefWidth="685.0">
+              <columns>
+                <TableColumn prefWidth="129.0" text="Шифр товара" />
+                <TableColumn prefWidth="182.0" text="Наименование товара" />
+                  <TableColumn minWidth="3.0" prefWidth="110.0" text="Цена за единицу" />
+                  <TableColumn minWidth="0.0" prefWidth="121.0" text="Количество" />
+                  <TableColumn prefWidth="142.0" text="Стоимость" />
+              </columns>
+            </TableView>
+            <Label layoutX="601.0" layoutY="521.0" text="ИТОГО" />
+            <Label layoutX="652.0" layoutY="521.0" text="0.00" />
          </children>
       </AnchorPane>
-      <Button layoutX="228.0" layoutY="717.0" mnemonicParsing="false" text="Добавить" />
-      <TableView layoutX="228.0" layoutY="465.0" prefHeight="200.0" prefWidth="685.0">
-        <columns>
-          <TableColumn prefWidth="129.0" text="Шифр товара" />
-          <TableColumn prefWidth="182.0" text="Наименование товара" />
-            <TableColumn minWidth="3.0" prefWidth="110.0" text="Цена за единицу" />
-            <TableColumn minWidth="0.0" prefWidth="121.0" text="Количество" />
-            <TableColumn prefWidth="142.0" text="Стоимость" />
-        </columns>
-      </TableView>
-      <Label layoutX="395.0" layoutY="436.0" text="Список товаров" />
-      <Label layoutX="818.0" layoutY="665.0" text="ИТОГО" />
-      <Label layoutX="868.0" layoutY="665.0" text="0.00" />
-      <Button layoutX="845.0" layoutY="717.0" mnemonicParsing="false" text="Отменить" />
+      <Button layoutX="206.0" layoutY="626.0" mnemonicParsing="false" text="Добавить" />
+      <Button layoutX="836.0" layoutY="626.0" mnemonicParsing="false" text="Отменить" />
    </children>
 </AnchorPane>
