@@ -17,22 +17,22 @@
                 <Font size="29.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="219.0" layoutY="69.0" prefHeight="518.0" prefWidth="729.0">
+        <AnchorPane layoutX="219.0" layoutY="70.0" prefHeight="461.0" prefWidth="729.0">
             <children>
-                <Label layoutX="14.0" layoutY="36.0" text="Номер заказа" />
-                <Label layoutX="14.0" layoutY="74.0" text="Статус" />
-                <Label layoutX="11.0" layoutY="106.0" text="Покупатель" />
-                <TextField layoutX="179.0" layoutY="32.0" />
-                <TextField layoutX="180.0" layoutY="70.0" />
-                <ComboBox layoutX="179.0" layoutY="102.0" prefWidth="150.0" />
-                <Label layoutX="11.0" layoutY="138.0" text="Спецификация" />
-                <ComboBox layoutX="179.0" layoutY="134.0" prefWidth="150.0" />
-                <Label layoutX="11.0" layoutY="177.0" text="Начало поставки" />
-                <Label layoutX="11.0" layoutY="207.0" text="Окончкание поставки" />
-                <DatePicker layoutX="179.0" layoutY="173.0" />
-                <DatePicker layoutX="179.0" layoutY="203.0" />
-              <Label layoutX="14.0" layoutY="243.0" text="Список товаров" />
-              <TableView layoutX="14.0" layoutY="272.0" prefHeight="200.0" prefWidth="685.0">
+                <Label layoutX="15.0" layoutY="6.0" text="Номер заказа" />
+                <Label layoutX="254.0" layoutY="6.0" text="Статус" />
+                <Label layoutX="14.0" layoutY="48.0" text="Покупатель" />
+                <TextField layoutX="17.0" layoutY="23.0" />
+                <TextField layoutX="255.0" layoutY="23.0" />
+                <ComboBox layoutX="17.0" layoutY="65.0" prefWidth="150.0" />
+                <Label layoutX="255.0" layoutY="48.0" text="Спецификация" />
+                <ComboBox layoutX="255.0" layoutY="65.0" prefWidth="150.0" />
+                <Label layoutX="17.0" layoutY="105.0" text="Начало поставки" />
+                <Label layoutX="17.0" layoutY="137.0" text="Окончкание поставки" />
+                <DatePicker layoutX="255.0" layoutY="101.0" />
+                <DatePicker layoutX="255.0" layoutY="142.0" />
+              <Label layoutX="20.0" layoutY="183.0" text="Список товаров" />
+              <TableView layoutX="14.0" layoutY="215.0" prefHeight="200.0" prefWidth="685.0">
                   <columns>
                       <TableColumn prefWidth="129.0" text="Шифр товара" />
                       <TableColumn prefWidth="182.0" text="Наименование товара" />
@@ -41,11 +41,11 @@
                       <TableColumn prefWidth="142.0" text="Стоимость" />
                   </columns>
               </TableView>
-              <Label layoutX="609.0" layoutY="476.0" text="ИТОГО" />
-              <Label layoutX="667.0" layoutY="475.0" text="0.00" />
+              <Label layoutX="571.0" layoutY="423.0" text="ИТОГО" />
+              <Label layoutX="641.0" layoutY="423.0" text="0.00" />
             </children>
         </AnchorPane>
-        <Button layoutX="219.0" layoutY="607.0" mnemonicParsing="false" text="Редактировать" />
-        <Button layoutX="815.0" layoutY="607.0" mnemonicParsing="false" text="Отменить изменения" />
+        <Button layoutX="219.0" layoutY="553.0" mnemonicParsing="false" text="Сохранить изменения" />
+        <Button layoutX="815.0" layoutY="553.0" mnemonicParsing="false" text="Отменить изменения" />
     </children>
 </AnchorPane>
