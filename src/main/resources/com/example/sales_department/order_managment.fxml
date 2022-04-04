@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
@@ -32,7 +33,6 @@
             <Label layoutX="16.0" layoutY="6.0" text="Номер заказа" />
             <TextField layoutX="16.0" layoutY="23.0" />
             <CheckBox layoutX="195.0" layoutY="27.0" mnemonicParsing="false" />
-            <TextField layoutX="18.0" layoutY="88.0" />
             <CheckBox layoutX="195.0" layoutY="92.0" mnemonicParsing="false" />
             <Label layoutX="14.0" layoutY="71.0" text="Покупатель" />
             <MenuButton layoutX="462.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" text="Статус">
@@ -43,6 +43,7 @@
             </MenuButton>
             <CheckBox layoutX="665.0" layoutY="92.0" mnemonicParsing="false" />
             <Button layoutX="1023.0" layoutY="88.0" mnemonicParsing="false" text="Поиск" />
+            <ComboBox layoutX="16.0" layoutY="88.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
       <Label layoutX="22.0" layoutY="69.0" text="Фильтры" />
@@ -52,5 +53,6 @@
          </font>
       </Label>
       <Button layoutX="147.0" layoutY="747.0" mnemonicParsing="false" text="Просмотреть" />
+      <Button layoutX="275.0" layoutY="747.0" mnemonicParsing="false" text="Редактировать" />
    </children>
 </AnchorPane>
