@@ -6,32 +6,30 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="850.0" prefWidth="1141.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.OrderEdit">
+<AnchorPane prefHeight="640.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.OrderEdit">
     <children>
-        <Label layoutX="443.0" layoutY="14.0" text="Редактирование заказа">
+        <Label layoutX="329.0" layoutY="14.0" text="Редактирование заказа">
             <font>
                 <Font size="29.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="219.0" layoutY="70.0" prefHeight="461.0" prefWidth="729.0">
+        <AnchorPane layoutX="120.0" layoutY="67.0" prefHeight="461.0" prefWidth="729.0">
             <children>
-                <Label layoutX="15.0" layoutY="6.0" text="Номер заказа" />
-                <Label layoutX="254.0" layoutY="6.0" text="Статус" />
-                <Label layoutX="14.0" layoutY="48.0" text="Покупатель" />
-                <TextField layoutX="17.0" layoutY="23.0" />
-                <TextField layoutX="255.0" layoutY="23.0" />
-                <ComboBox layoutX="17.0" layoutY="65.0" prefWidth="150.0" />
-                <Label layoutX="255.0" layoutY="48.0" text="Спецификация" />
-                <ComboBox layoutX="255.0" layoutY="65.0" prefWidth="150.0" />
-                <Label layoutX="18.0" layoutY="101.0" text="Начало поставки" />
-                <Label layoutX="254.0" layoutY="101.0" text="Окончкание поставки" />
-                <DatePicker layoutX="14.0" layoutY="118.0" />
-                <DatePicker layoutX="255.0" layoutY="118.0" />
-              <Label layoutX="20.0" layoutY="183.0" text="Список товаров" />
+                <Label layoutX="156.0" layoutY="48.0" text="Покупатель" />
+                <ComboBox layoutX="156.0" layoutY="65.0" prefWidth="150.0" />
+                <Label layoutX="399.0" layoutY="48.0" text="Спецификация" />
+                <ComboBox layoutX="399.0" layoutY="65.0" prefWidth="150.0" />
+                <Label layoutX="156.0" layoutY="101.0" text="Начало поставки" />
+                <Label layoutX="399.0" layoutY="101.0" text="Окончкание поставки" />
+                <DatePicker layoutX="156.0" layoutY="118.0" />
+                <DatePicker layoutX="399.0" layoutY="118.0" />
+              <Label layoutX="20.0" layoutY="183.0" text="Список товаров в заказе">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
               <TableView layoutX="14.0" layoutY="215.0" prefHeight="200.0" prefWidth="685.0">
                   <columns>
                       <TableColumn prefWidth="129.0" text="Шифр товара" />
@@ -43,9 +41,10 @@
               </TableView>
               <Label layoutX="571.0" layoutY="423.0" text="ИТОГО" />
               <Label layoutX="641.0" layoutY="423.0" text="0.00" />
+            <Button layoutX="629.0" layoutY="181.0" mnemonicParsing="false" text="Изменить" />
             </children>
         </AnchorPane>
-        <Button layoutX="219.0" layoutY="553.0" mnemonicParsing="false" text="Сохранить изменения" />
-        <Button layoutX="815.0" layoutY="553.0" mnemonicParsing="false" text="Отменить изменения" />
+        <Button layoutX="120.0" layoutY="553.0" mnemonicParsing="false" text="Сохранить изменения" />
+        <Button layoutX="716.0" layoutY="553.0" mnemonicParsing="false" text="Отменить изменения" />
     </children>
 </AnchorPane>

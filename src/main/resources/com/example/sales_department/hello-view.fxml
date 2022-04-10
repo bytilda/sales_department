@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1017.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="468.0" layoutY="33.0" text="Меню">
+      <Button layoutX="325.0" layoutY="48.0" mnemonicParsing="false" prefHeight="148.0" prefWidth="368.0" text="Договоры">
+         <font>
+            <Font size="29.0" />
+         </font></Button>
+      <Button layoutX="325.0" layoutY="422.0" mnemonicParsing="false" prefHeight="148.0" prefWidth="368.0" text="Реализация">
+         <font>
+            <Font size="29.0" />
+         </font></Button>
+      <Button layoutX="325.0" layoutY="232.0" mnemonicParsing="false" prefHeight="148.0" prefWidth="368.0" text="Заказы">
+         <font>
+            <Font size="29.0" />
+         </font></Button>
+      <Button layoutX="325.0" layoutY="616.0" mnemonicParsing="false" prefHeight="148.0" prefWidth="368.0" text="Справочники">
          <font>
             <Font size="29.0" />
          </font>
-      </Label>
-      <Button layoutX="392.0" layoutY="98.0" mnemonicParsing="false" prefHeight="148.0" prefWidth="234.0" text="Договоры" />
-      <Button layoutX="392.0" layoutY="459.0" mnemonicParsing="false" prefHeight="148.0" prefWidth="234.0" text="Реализация" />
-      <Button layoutX="392.0" layoutY="283.0" mnemonicParsing="false" prefHeight="148.0" prefWidth="234.0" text="Заказы" />
+      </Button>
    </children>
 </AnchorPane>
