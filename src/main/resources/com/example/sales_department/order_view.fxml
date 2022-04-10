@@ -4,45 +4,52 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="850.0" prefWidth="1013.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.OrderView">
+<AnchorPane prefHeight="642.0" prefWidth="1131.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.OrderView">
     <children>
-        <Label layoutX="393.0" layoutY="14.0" text="Просмотр заказа">
+        <Label layoutX="393.0" layoutY="14.0" text="Реестр заказов">
             <font>
                 <Font size="29.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="194.0" layoutY="69.0" prefHeight="455.0" prefWidth="731.0">
-            <children>
-                <Label layoutX="15.0" layoutY="14.0" text="Номер заказа" />
-                <Label layoutX="303.0" layoutY="14.0" text="Статус" />
-                <Label layoutX="11.0" layoutY="68.0" text="Покупатель" />
-                <TextField layoutX="11.0" layoutY="31.0" />
-                <TextField layoutX="303.0" layoutY="31.0" />
-                <Label layoutX="301.0" layoutY="68.0" text="Спецификация" />
-                <Label layoutX="15.0" layoutY="117.0" text="Начало поставки" />
-                <Label layoutX="305.0" layoutY="117.0" text="Окончкание поставки" />
-                <Label layoutX="9.0" layoutY="168.0" text="Список товаров" />
-                <TableView layoutX="14.0" layoutY="204.0" prefHeight="200.0" prefWidth="685.0">
-                    <columns>
-                        <TableColumn prefWidth="129.0" text="Шифр товара" />
-                        <TableColumn prefWidth="182.0" text="Наименование товара" />
-                        <TableColumn minWidth="3.0" prefWidth="110.0" text="Цена за единицу" />
-                        <TableColumn minWidth="0.0" prefWidth="121.0" text="Количество" />
-                        <TableColumn prefWidth="142.0" text="Стоимость" />
-                    </columns>
-                </TableView>
-                <Label layoutX="591.0" layoutY="414.0" text="ИТОГО" />
-                <Label layoutX="643.0" layoutY="414.0" text="0.00" />
-            <TextField layoutX="11.0" layoutY="85.0" />
-            <TextField layoutX="303.0" layoutY="134.0" />
-            <TextField layoutX="11.0" layoutY="134.0" />
-            <TextField layoutX="303.0" layoutY="85.0" />
-            </children>
+        <AnchorPane layoutX="332.0" layoutY="69.0" prefHeight="545.0" prefWidth="777.0">
+         <children>
+            <TableView layoutX="14.0" layoutY="23.0" prefHeight="487.0" prefWidth="758.0">
+               <columns>
+                  <TableColumn prefWidth="124.0" text="Номер заказа" />
+                  <TableColumn prefWidth="133.0" text="Дата поступления" />
+                  <TableColumn minWidth="8.0" prefWidth="234.0" text="Покупатель" />
+                  <TableColumn prefWidth="117.0" text="Начало поставки" />
+                  <TableColumn prefWidth="149.0" text="Окончание поставки" />
+               </columns>
+            </TableView>
+         </children>
         </AnchorPane>
-        <Button layoutX="238.0" layoutY="524.0" mnemonicParsing="false" text="ОК" />
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="322.0">
+         <children>
+            <Button layoutX="61.0" layoutY="97.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Создание нового заказа">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="61.0" layoutY="216.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Найти существующий заказ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="61.0" layoutY="336.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Реестр заказов">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="61.0" layoutY="452.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Выход">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>
