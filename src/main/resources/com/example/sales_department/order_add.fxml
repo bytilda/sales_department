@@ -27,11 +27,11 @@
             <TextField layoutX="17.0" layoutY="73.0" />
             <DatePicker layoutX="266.0" layoutY="31.0" />
             <ComboBox layoutX="266.0" layoutY="73.0" prefWidth="150.0" />
-            <Label layoutX="12.0" layoutY="169.0" text="Спецификация" />
-            <ComboBox layoutX="266.0" layoutY="165.0" prefWidth="150.0" />
+            <Label layoutX="23.0" layoutY="165.0" text="Спецификация" />
+            <ComboBox layoutX="266.0" layoutY="161.0" prefWidth="150.0" />
             <Label layoutX="17.0" layoutY="111.0" text="Начало поставки" />
-            <Label layoutX="12.0" layoutY="138.0" text="Окончкание поставки" />
-            <DatePicker layoutX="266.0" layoutY="107.0" />
+            <Label layoutX="266.0" layoutY="111.0" text="Окончкание поставки" />
+            <DatePicker layoutX="17.0" layoutY="134.0" />
             <DatePicker layoutX="266.0" layoutY="134.0" />
             <Label layoutX="9.0" layoutY="209.0" text="Список товаров" />
             <TableView layoutX="11.0" layoutY="242.0" prefHeight="200.0" prefWidth="685.0">
