@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="418.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.Specification">
+   <children>
+      <TableView layoutX="28.0" layoutY="80.0" prefHeight="286.0" prefWidth="814.0">
+        <columns>
+          <TableColumn prefWidth="31.0" text="№" />
+          <TableColumn prefWidth="198.0" text="Номер договора" />
+            <TableColumn prefWidth="115.0" text="Ед. изм." />
+            <TableColumn prefWidth="170.0" text="Количество" />
+            <TableColumn prefWidth="134.0" text="Дата доставки" />
+            <TableColumn prefWidth="163.0" text="Адрес грузополучателя" />
+        </columns>
+      </TableView>
+      <Text layoutX="38.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Спецификации" />
+   </children>
+</AnchorPane>

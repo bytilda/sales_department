@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="615.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.Contractors">
+   <children>
+      <Button layoutX="70.0" layoutY="202.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="176.0" text="Добавить контрагента" />
+      <Button layoutX="70.0" layoutY="393.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="176.0" text="Выход" />
+      <TableView layoutX="289.0" layoutY="142.0" prefHeight="412.0" prefWidth="819.0">
+        <columns>
+          <TableColumn prefWidth="109.0" text="Юридический адрес" />
+          <TableColumn prefWidth="114.0" text="Почтовый адрес" />
+            <TableColumn prefWidth="89.0" text="ИНН" />
+            <TableColumn prefWidth="107.0" text="КПП" />
+            <TableColumn prefWidth="143.0" text="Расчётный счёт" />
+            <TableColumn prefWidth="125.0" text="Корреспондетский счёт" />
+            <TableColumn prefWidth="131.0" text="БИК" />
+        </columns>
+      </TableView>
+      <Button layoutX="70.0" layoutY="295.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="176.0" text="Редактировать контрагента" />
+   </children>
+</AnchorPane>
