@@ -12,21 +12,36 @@
 
 <AnchorPane prefHeight="850.0" prefWidth="1141.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.RealizationAdd">
     <children>
-        <Label layoutX="443.0" layoutY="14.0" text="Добавление реализации">
+        <Label layoutX="487.0" layoutY="14.0" text="Добавление реализации">
             <font>
                 <Font size="29.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="206.0" layoutY="67.0" prefHeight="480.0" prefWidth="712.0">
+        <AnchorPane layoutX="420.0" layoutY="114.0" prefHeight="687.0" prefWidth="700.0">
             <children>
-                <Label layoutX="15.0" layoutY="14.0" text="Номер УПД" />
-                <Label layoutX="266.0" layoutY="14.0" text="Дата " />
-                <Label layoutX="17.0" layoutY="56.0" text="Статус оплаты" />
-                <Label layoutX="266.0" layoutY="56.0" text="Фактическое время отгрузки со склада" />
-                <TextField layoutX="17.0" layoutY="31.0" />
-                <TextField layoutX="17.0" layoutY="73.0" />
-                <DatePicker layoutX="266.0" layoutY="31.0" />
-                <Label layoutX="9.0" layoutY="209.0" text="Список товаров" />
+                <Label layoutX="15.0" layoutY="14.0" text="Номер УПД">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+                <Label layoutX="17.0" layoutY="148.0" text="Дата ">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+                <Label layoutX="15.0" layoutY="48.0" text="Статус оплаты">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+                <Label layoutX="14.0" layoutY="177.0" text="Фактическое время отгрузки со склада">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+                <TextField layoutX="305.0" layoutY="12.0" prefHeight="25.0" prefWidth="174.0" />
+                <TextField layoutX="305.0" layoutY="46.0" prefHeight="25.0" prefWidth="174.0" />
+                <DatePicker layoutX="305.0" layoutY="146.0" />
+                <Label layoutX="9.0" layoutY="209.0" text="Список товаров">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
                 <TableView layoutX="11.0" layoutY="242.0" prefHeight="200.0" prefWidth="685.0">
                     <columns>
                         <TableColumn prefWidth="129.0" text="Шифр товара" />
@@ -37,15 +52,45 @@
                     </columns>
                 </TableView>
                 <Label layoutX="589.0" layoutY="452.0" text="ИТОГО" />
-                <Label layoutX="651.0" layoutY="452.0" text="0.00" />
-            <TextField layoutX="267.0" layoutY="73.0" />
-            <Label layoutX="16.0" layoutY="105.0" text="Адрес грузополучателя" />
-            <ComboBox layoutX="17.0" layoutY="122.0" prefWidth="150.0" />
-            <ComboBox layoutX="267.0" layoutY="122.0" prefWidth="150.0" />
-            <Label layoutX="267.0" layoutY="105.0" text="Номер заказа" />
+                <Label layoutX="644.0" layoutY="452.0" text="0.00" />
+            <TextField layoutX="305.0" layoutY="175.0" prefHeight="25.0" prefWidth="174.0" />
+            <Label layoutX="17.0" layoutY="84.0" text="Адрес грузополучателя">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <ComboBox layoutX="305.0" layoutY="82.0" prefHeight="25.0" prefWidth="174.0" />
+            <ComboBox layoutX="305.0" layoutY="115.0" prefHeight="25.0" prefWidth="174.0" />
+            <Label layoutX="17.0" layoutY="117.0" text="Номер заказа">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+              <Button layoutX="11.0" layoutY="648.0" mnemonicParsing="false" text="Добавить реализацию" />
+              <Button layoutX="609.0" layoutY="648.0" mnemonicParsing="false" text="Отменить" />
             </children>
         </AnchorPane>
-        <Button layoutX="206.0" layoutY="563.0" mnemonicParsing="false" text="Добавить" />
-        <Button layoutX="848.0" layoutY="563.0" mnemonicParsing="false" text="Отменить" />
+      <AnchorPane prefHeight="850.0" prefWidth="322.0">
+         <children>
+            <Button layoutX="61.0" layoutY="97.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Добавление реализации">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="61.0" layoutY="216.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Найти существующую реализацию">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="61.0" layoutY="336.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Реестр реализаций">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="61.0" layoutY="492.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Выход">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>
