@@ -18,22 +18,22 @@
       </Label>
       <AnchorPane prefHeight="850.0" prefWidth="322.0">
          <children>
-            <Button layoutX="61.0" layoutY="97.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Создание нового заказа">
+            <Button disable="true" layoutX="61.0" layoutY="97.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Создание нового заказа">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="61.0" layoutY="216.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Найти существующий заказ">
+            <Button fx:id="findOrderButton" layoutX="61.0" layoutY="216.0" mnemonicParsing="false" onAction="#onFindOrderButtonClick" prefHeight="70.0" prefWidth="230.0" text="Найти существующий заказ">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="61.0" layoutY="336.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Реестр заказов">
+            <Button fx:id="orderListButton" layoutX="61.0" layoutY="336.0" mnemonicParsing="false" onAction="#onOrderListButtonClick" prefHeight="70.0" prefWidth="230.0" text="Реестр заказов">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="61.0" layoutY="492.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Выход">
+            <Button fx:id="exitButton" layoutX="61.0" layoutY="492.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="70.0" prefWidth="230.0" text="Выход">
                <font>
                   <Font size="15.0" />
                </font>
@@ -69,13 +69,13 @@
             </Label>
             <AnchorPane layoutX="14.0" layoutY="256.0" prefHeight="353.0" prefWidth="747.0">
                <children>
-                  <TableView layoutX="21.0" layoutY="39.0" prefHeight="280.0" prefWidth="681.0">
+                  <TableView fx:id="productListInOrderTebleView" layoutX="21.0" layoutY="39.0" prefHeight="280.0" prefWidth="681.0">
                     <columns>
-                      <TableColumn prefWidth="117.0" text="Шифр товара" />
-                      <TableColumn prefWidth="184.0" text="Наименование товара" />
-                        <TableColumn minWidth="0.0" prefWidth="115.0" text="Цена за единицу" />
-                        <TableColumn prefWidth="104.0" text="Количество" />
-                        <TableColumn prefWidth="160.0" text="Стоимость" />
+                      <TableColumn fx:id="productCipherTableColumn" prefWidth="117.0" text="Шифр товара" />
+                      <TableColumn fx:id="productNameTableColumn" prefWidth="184.0" text="Наименование товара" />
+                        <TableColumn fx:id="priceForOneTableColumn" minWidth="0.0" prefWidth="115.0" text="Цена за единицу" />
+                        <TableColumn fx:id="amountTableColumn" prefWidth="104.0" text="Количество" />
+                        <TableColumn fx:id="priceForAllTableColumn" prefWidth="160.0" text="Стоимость" />
                     </columns>
                   </TableView>
                   <AnchorPane layoutX="584.0" layoutY="319.0" prefHeight="25.0" prefWidth="118.0">
@@ -85,7 +85,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="94.0" layoutY="2.0" text="00.0">
+                        <Label fx:id="priceForOrderLabel" layoutX="85.0" layoutY="2.0" text="00.0">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -94,13 +94,19 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <ComboBox layoutX="470.0" layoutY="199.0" prefHeight="25.0" prefWidth="174.0" />
-            <DatePicker layoutX="470.0" layoutY="86.0" />
-            <DatePicker layoutX="470.0" layoutY="142.0" />
-            <Button layoutX="470.0" layoutY="263.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" text="Добавить товары в заказ" />
-            <Button layoutX="644.0" layoutY="647.0" mnemonicParsing="false" text="Отменить " />
-            <Button layoutX="40.0" layoutY="647.0" mnemonicParsing="false" text="Создать заказ" />
-            <ComboBox layoutX="470.0" layoutY="31.0" prefHeight="25.0" prefWidth="174.0" />
+            <ComboBox fx:id="specificationComboBox" layoutX="470.0" layoutY="199.0" onAction="#onSpecificationComboBoxAction" prefHeight="25.0" prefWidth="174.0" />
+            <DatePicker fx:id="deliveryStartDateDatePicker" layoutX="470.0" layoutY="86.0" />
+            <DatePicker fx:id="deliveryFinishDateDatePicker" layoutX="470.0" layoutY="142.0" />
+            <Button fx:id="addProductInOrderButton" layoutX="470.0" layoutY="263.0" mnemonicParsing="false" onAction="#onAddProductInOrderButtonClick" prefHeight="25.0" prefWidth="174.0" text="Добавить товары в заказ" />
+            <Button fx:id="cancelButton" layoutX="628.0" layoutY="647.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Отменить ">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="addOrderButton" layoutX="40.0" layoutY="647.0" mnemonicParsing="false" onAction="#onAddOrderButtonClick" text="Создать заказ">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <ComboBox fx:id="customerComboBox" layoutX="470.0" layoutY="31.0" onAction="#onCustomerComboBoxAction" prefHeight="25.0" prefWidth="174.0" />
          </children>
       </AnchorPane>
    </children>

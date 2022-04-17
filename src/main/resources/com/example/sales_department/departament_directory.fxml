@@ -12,22 +12,22 @@
             <Font size="29.0" />
          </font>
       </Label>
-      <Button layoutX="195.0" layoutY="93.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="216.0" text="Контрагенты">
+      <Button fx:id="contractorsButton" layoutX="195.0" layoutY="93.0" mnemonicParsing="false" onAction="#onContractorsButtonClick" prefHeight="39.0" prefWidth="216.0" text="Контрагенты">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="195.0" layoutY="224.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="216.0" text="Спецификации">
+      <Button fx:id="specificationsButton" layoutX="195.0" layoutY="224.0" mnemonicParsing="false" onAction="#onSpecificationsButtonClick" prefHeight="39.0" prefWidth="216.0" text="Спецификации">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="195.0" layoutY="160.0" mnemonicParsing="false" text="Номенклатура товаров">
+      <Button fx:id="nomenclatureProductButton" layoutX="195.0" layoutY="160.0" mnemonicParsing="false" onAction="#onNomenclatureProductButtonClick" text="Номенклатура товаров">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="195.0" layoutY="294.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="216.0" text="Выход">
+      <Button fx:id="exitButton" layoutX="195.0" layoutY="294.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="39.0" prefWidth="216.0" text="Выход">
          <font>
             <Font size="18.0" />
          </font>

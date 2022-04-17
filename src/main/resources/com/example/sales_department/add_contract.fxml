@@ -3,44 +3,80 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="601.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.AddContract">
+<AnchorPane fx:id="addContractAnchorPane" prefHeight="601.0" prefWidth="1026.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.AddContract">
    <children>
-      <Text layoutX="73.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добавить договор" />
-      <Spinner layoutX="302.0" layoutY="122.0" />
-      <DatePicker layoutX="530.0" layoutY="122.0" />
-      <Button layoutX="289.0" layoutY="544.0" mnemonicParsing="false" text="Добавить" />
-      <Text layoutX="301.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер договора" />
-      <Text layoutX="534.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата заключения" />
-      <Text layoutX="301.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Контрагент" />
-      <Text layoutX="301.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Предмет договора" />
-      <Button layoutX="813.0" layoutY="544.0" mnemonicParsing="false" text="Отмена" />
-      <DatePicker layoutX="530.0" layoutY="185.0" prefHeight="25.0" prefWidth="174.0" />
-      <Text layoutX="531.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата вступления договора в силу" />
-      <DatePicker layoutX="530.0" layoutY="240.0" prefHeight="25.0" prefWidth="174.0" />
-      <Text layoutX="530.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Действителен до" />
-      <TableView layoutX="293.0" layoutY="315.0" prefHeight="200.0" prefWidth="578.0">
+      <Text layoutX="339.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добавить договор">
+         <font>
+            <Font size="30.0" />
+         </font></Text>
+      <DatePicker fx:id="dateClosingDatePicker" layoutX="530.0" layoutY="122.0" />
+      <Button fx:id="addContractButton" layoutX="289.0" layoutY="544.0" mnemonicParsing="false" onAction="#onAddContractButtonClick" text="Добавить">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Text layoutX="301.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер договора">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <Text layoutX="534.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата заключения">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <Text layoutX="301.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Контрагент">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <Text layoutX="301.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Предмет договора">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <Button fx:id="cancelButtonClick" layoutX="813.0" layoutY="544.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Отмена">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <DatePicker fx:id="dateForceDatePicker" layoutX="530.0" layoutY="185.0" prefHeight="25.0" prefWidth="174.0" />
+      <Text layoutX="531.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата вступления договора в силу">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <DatePicker fx:id="validDateDatePicker" layoutX="530.0" layoutY="240.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextArea fx:id="contractContentTextArea" layoutX="301.0" layoutY="240.0" prefHeight="38.0" prefWidth="150.0" />
+      <Text layoutX="530.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Действителен до">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <TableView fx:id="numberAppTableView" layoutX="293.0" layoutY="315.0" prefHeight="200.0" prefWidth="578.0">
         <columns>
-          <TableColumn prefWidth="576.0" text="Номер приложения" />
+          <TableColumn fx:id="numberAppTableColumn" prefWidth="576.0" text="Номер приложения" />
         </columns>
       </TableView>
-      <TextArea layoutX="301.0" layoutY="240.0" prefHeight="38.0" prefWidth="150.0" />
-      <Text layoutX="722.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Город заключения договора" />
-      <Text layoutX="722.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Адрес грузополучателя" />
-      <TextField layoutX="722.0" layoutY="185.0" />
-      <TextField layoutX="722.0" layoutY="240.0" />
-      <Button layoutX="415.0" layoutY="544.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Договор в PDF" />
-      <ComboBox layoutX="301.0" layoutY="185.0" prefWidth="150.0" />
-      <Button layoutX="61.0" layoutY="334.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="183.0" text="Реестр" />
-      <Button layoutX="60.0" layoutY="217.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="186.0" text="Найти существующий договор" />
-      <Button layoutX="59.0" layoutY="452.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="186.0" text="Выход" />
-      <Button layoutX="61.0" layoutY="99.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="183.0" text="Добавить договор" />
+      <Text layoutX="771.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Город заключения договора">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <Text layoutX="768.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Адрес грузополучателя">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <TextField fx:id="cityContractTextField" layoutX="768.0" layoutY="185.0" />
+      <TextField fx:id="consigneeAddress" layoutX="768.0" layoutY="240.0" />
+      <Button layoutX="415.0" layoutY="544.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="136.0" text="Договор в PDF">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <ComboBox fx:id="contractorsComboBox" layoutX="301.0" layoutY="185.0" onAction="#onContractorsComboBoxClick" prefWidth="150.0" />
+      <Button fx:id="contractListButton" layoutX="61.0" layoutY="334.0" mnemonicParsing="false" onAction="#onContractListButtonClick" prefHeight="71.0" prefWidth="183.0" text="Реестр" />
+      <Button fx:id="findContractButton" layoutX="60.0" layoutY="217.0" mnemonicParsing="false" onAction="#onFindContractButtonClick" prefHeight="71.0" prefWidth="186.0" text="Найти существующий договор" />
+      <Button fx:id="exitButton" layoutX="59.0" layoutY="452.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="71.0" prefWidth="186.0" text="Выход" />
+      <Button fx:id="createContractButton" disable="true" layoutX="61.0" layoutY="99.0" mnemonicParsing="false" onAction="#onCreateContractButtonClick" prefHeight="71.0" prefWidth="183.0" text="Добавить договор" />
+      <TextField fx:id="contractNumberTextField" layoutX="302.0" layoutY="122.0" />
    </children>
 </AnchorPane>

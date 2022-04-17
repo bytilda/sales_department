@@ -15,13 +15,13 @@
             <Font size="29.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="62.0" layoutY="80.0" prefHeight="318.0" prefWidth="647.0">
+      <AnchorPane fx:id="addProductInOrderAnchorPane" layoutX="62.0" layoutY="80.0" prefHeight="318.0" prefWidth="647.0">
          <children>
-            <TableView layoutX="118.0" layoutY="59.0" prefHeight="200.0" prefWidth="411.0">
+            <TableView fx:id="nomenclatureProductTableView" layoutX="118.0" layoutY="59.0" prefHeight="200.0" prefWidth="411.0">
               <columns>
-                <TableColumn prefWidth="113.0" text="Шифр товара" />
-                <TableColumn prefWidth="224.0" text="Наименование товара" />
-                  <TableColumn minWidth="9.0" prefWidth="73.0" text="Вес в кг" />
+                <TableColumn fx:id="productCipherTableColumn" prefWidth="113.0" text="Шифр товара" />
+                <TableColumn fx:id="productNameTableColumn" prefWidth="224.0" text="Наименование товара" />
+                  <TableColumn fx:id="weightTableColumn" minWidth="9.0" prefWidth="73.0" text="Вес в кг" />
               </columns>
             </TableView>
             <Label layoutX="118.0" layoutY="23.0" text="Номенклатура товаров">
@@ -29,9 +29,9 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button layoutX="118.0" layoutY="272.0" mnemonicParsing="false" text="Добваить товар" />
-            <Button layoutX="471.0" layoutY="272.0" mnemonicParsing="false" text="Отмена" />
-            <Button layoutX="241.0" layoutY="272.0" mnemonicParsing="false" text="Удалить товар" />
+            <Button fx:id="addProductInOrderButton" layoutX="118.0" layoutY="272.0" mnemonicParsing="false" onAction="#onAddProductInOrderButtonClick" text="Добваить товар" />
+            <Button fx:id="cancelButton" layoutX="471.0" layoutY="272.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Отмена" />
+            <Button fx:id="deleteProductFromOrderButton" layoutX="241.0" layoutY="272.0" mnemonicParsing="false" onAction="#onDeleteProductFromOrderButtonClick" text="Удалить товар" />
          </children>
       </AnchorPane>
       <Accordion layoutX="105.0" layoutY="109.0" />

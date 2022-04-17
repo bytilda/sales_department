@@ -4,7 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class DepartamentDirectory {
+public class MenuContract {
+
+    @FXML
+    private Button addContractButton;
+
+    @FXML
+    private Button contractListButton;
 
     @FXML
     private Button contractorsButton;
@@ -13,13 +19,23 @@ public class DepartamentDirectory {
     private Button exitButton;
 
     @FXML
-    private Button nomenclatureProductButton;
+    private Button findContractButton;
 
     @FXML
     private Button specificationsButton;
 
     @FXML
-    void onContractorsButtonClick(ActionEvent event) {
+    void onAddContractButtonClick(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onContractListButtonClick(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onCotractorsButtonClick(ActionEvent event) {
 
     }
 
@@ -29,7 +45,7 @@ public class DepartamentDirectory {
     }
 
     @FXML
-    void onNomenclatureProductButtonClick(ActionEvent event) {
+    void onFindContractButtonClick(ActionEvent event) {
 
     }
 
