@@ -36,6 +36,17 @@ public class Realization {
     @OneToMany(mappedBy = "idRealization")
     private Set<ProductListInRealization> productListInRealizations = new LinkedHashSet<>();
 
+    @Column(name = "receiving_date")
+    private LocalDate receivingDate;
+
+    public LocalDate getReceivingDate() {
+        return receivingDate;
+    }
+
+    public void setReceivingDate(LocalDate receivingDate) {
+        this.receivingDate = receivingDate;
+    }
+
     public Set<ProductListInRealization> getProductListInRealizations() {
         return productListInRealizations;
     }
