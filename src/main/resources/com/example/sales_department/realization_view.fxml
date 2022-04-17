@@ -9,24 +9,25 @@
 
 <AnchorPane prefHeight="563.0" prefWidth="1141.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.RealizationView">
     <children>
-        <Label layoutX="443.0" layoutY="14.0" text="Просмотр реализации">
+        <Label fx:id="viewRealizeText" layoutX="443.0" layoutY="14.0" text="Просмотр реализаций">
             <font>
                 <Font size="29.0" />
             </font>
         </Label>
-      <TableView layoutX="299.0" layoutY="151.0" prefHeight="336.0" prefWidth="806.0">
+      <TableView fx:id="viewRealizeTableView" layoutX="299.0" layoutY="151.0" prefHeight="336.0" prefWidth="821.0">
         <columns>
-          <TableColumn prefWidth="102.0" text="Статус оплаты" />
-          <TableColumn prefWidth="63.0" text="Дата" />
-            <TableColumn prefWidth="109.0" text="Номер УПД" />
-            <TableColumn prefWidth="103.0" text="Покупатель" />
-            <TableColumn prefWidth="265.0" text="Фактическое время отгрузки со склада" />
-            <TableColumn prefWidth="163.0" text="Адрес грузополучателя" />
+          <TableColumn fx:id="statusTableColumn" prefWidth="89.0" text="Статус оплаты" />
+          <TableColumn fx:id="dateTableColumn" prefWidth="56.0" text="Дата" />
+            <TableColumn fx:id="numberUPDTableColumn" prefWidth="90.0" text="Номер УПД" />
+            <TableColumn fx:id="contractorTableColumn" prefWidth="85.0" text="Покупатель" />
+            <TableColumn fx:id="timeShipmentTableColumn" prefWidth="251.0" text="Фактическое время отгрузки со склада" />
+            <TableColumn fx:id="adressTableColumn" prefWidth="148.0" text="Адрес грузополучателя" />
+            <TableColumn fx:id="dateReceiveTableColumn" prefWidth="100.0" text="Дата приёмки" />
         </columns>
       </TableView>
-      <Button layoutX="47.0" layoutY="151.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="213.0" text="Добавление" />
-      <Button layoutX="47.0" layoutY="240.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="213.0" text="Найти" />
-      <Button layoutX="47.0" layoutY="329.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="213.0" text="Просмотр" />
-      <Button layoutX="47.0" layoutY="413.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="213.0" text="Выход" />
+      <Button fx:id="addRealizeButton" layoutX="47.0" layoutY="151.0" mnemonicParsing="false" onAction="#onAddRealizeButtonClick" prefHeight="72.0" prefWidth="213.0" text="Добавление" />
+      <Button fx:id="findRealizeButton" layoutX="47.0" layoutY="240.0" mnemonicParsing="false" onAction="#onFindRealizeButtonClick" prefHeight="72.0" prefWidth="213.0" text="Найти" />
+      <Button disable="true" layoutX="47.0" layoutY="329.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="213.0" text="Просмотр" />
+      <Button fx:id="exitButton" layoutX="47.0" layoutY="413.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="72.0" prefWidth="213.0" text="Выход" />
     </children>
 </AnchorPane>
