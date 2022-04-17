@@ -4,45 +4,29 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="850.0" prefWidth="1141.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.RealizationView">
+<AnchorPane prefHeight="563.0" prefWidth="1141.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.RealizationView">
     <children>
         <Label layoutX="443.0" layoutY="14.0" text="Просмотр реализации">
             <font>
                 <Font size="29.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="219.0" layoutY="70.0" prefHeight="461.0" prefWidth="729.0">
-            <children>
-                <Label layoutX="15.0" layoutY="6.0" text="Номер УПД" />
-                <Label layoutX="254.0" layoutY="6.0" text="Дата" />
-                <Label layoutX="14.0" layoutY="48.0" text="Статус оплаты" />
-                <TextField layoutX="17.0" layoutY="23.0" />
-                <Label layoutX="16.0" layoutY="93.0" text="Адрес грузополучателя" />
-                <Label layoutX="20.0" layoutY="183.0" text="Список товаров" />
-                <TableView layoutX="14.0" layoutY="215.0" prefHeight="200.0" prefWidth="685.0">
-                    <columns>
-                        <TableColumn prefWidth="129.0" text="Шифр товара" />
-                        <TableColumn prefWidth="182.0" text="Наименование товара" />
-                        <TableColumn minWidth="3.0" prefWidth="110.0" text="Цена за единицу" />
-                        <TableColumn minWidth="0.0" prefWidth="121.0" text="Количество" />
-                        <TableColumn prefWidth="142.0" text="Стоимость" />
-                    </columns>
-                </TableView>
-                <Label layoutX="571.0" layoutY="423.0" text="ИТОГО" />
-                <Label layoutX="641.0" layoutY="423.0" text="0.00" />
-                <TextField layoutX="18.0" layoutY="65.0" />
-                <Label layoutX="251.0" layoutY="48.0" text="Фактическое время отгрузки со склада" />
-                <TextField layoutX="251.0" layoutY="65.0" />
-                <Label layoutX="251.0" layoutY="93.0" text="Номер заказа" />
-            <TextField layoutX="251.0" layoutY="110.0" />
-            <TextField layoutX="18.0" layoutY="110.0" />
-            <TextField layoutX="253.0" layoutY="23.0" />
-            </children>
-        </AnchorPane>
-        <Button layoutX="219.0" layoutY="553.0" mnemonicParsing="false" text="ОК" />
+      <TableView layoutX="299.0" layoutY="151.0" prefHeight="336.0" prefWidth="806.0">
+        <columns>
+          <TableColumn prefWidth="102.0" text="Статус оплаты" />
+          <TableColumn prefWidth="63.0" text="Дата" />
+            <TableColumn prefWidth="109.0" text="Номер УПД" />
+            <TableColumn prefWidth="103.0" text="Покупатель" />
+            <TableColumn prefWidth="265.0" text="Фактическое время отгрузки со склада" />
+            <TableColumn prefWidth="163.0" text="Адрес грузополучателя" />
+        </columns>
+      </TableView>
+      <Button layoutX="47.0" layoutY="151.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="213.0" text="Добавление" />
+      <Button layoutX="47.0" layoutY="240.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="213.0" text="Найти" />
+      <Button layoutX="47.0" layoutY="329.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="213.0" text="Просмотр" />
+      <Button layoutX="47.0" layoutY="413.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="213.0" text="Выход" />
     </children>
 </AnchorPane>

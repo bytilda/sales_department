@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="319.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.AddSpecification">
+   <children>
+      <TextField layoutX="77.0" layoutY="54.0" />
+      <TextField layoutX="77.0" layoutY="116.0" />
+      <TextField layoutX="77.0" layoutY="188.0" />
+      <Text layoutX="77.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер договора" />
+      <Text layoutX="77.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ед. изм." />
+      <Text layoutX="77.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Количество" />
+      <Text layoutX="342.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата доставки" />
+      <Text layoutX="342.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Адрес грузополучателя" />
+      <DatePicker layoutX="342.0" layoutY="54.0" />
+      <TextField layoutX="342.0" layoutY="116.0" prefHeight="25.0" prefWidth="174.0" />
+      <Button layoutX="72.0" layoutY="250.0" mnemonicParsing="false" text="Добавить" />
+      <Button layoutX="464.0" layoutY="250.0" mnemonicParsing="false" text="Отмена" />
+      <Text layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добавить спецификацию" />
+   </children>
+</AnchorPane>
