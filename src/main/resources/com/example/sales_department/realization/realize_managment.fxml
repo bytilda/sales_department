@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="696.0" prefWidth="1133.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.realization.RealizeManagment">
+   <children>
+      <Text fx:id="findRealizeText" layoutX="14.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Поиск существующей реализации" />
+      <Text fx:id="filterText" layoutX="759.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фильтры" />
+      <TextArea fx:id="filterTextArea" layoutX="756.0" layoutY="39.0" prefHeight="218.0" prefWidth="329.0" />
+      <DatePicker fx:id="DateDatePicker" layoutX="771.0" layoutY="123.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField fx:id="numberUPDTextField" layoutX="771.0" layoutY="170.0" prefHeight="25.0" prefWidth="215.0" />
+      <Text fx:id="StatusText" layoutX="771.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Статус оплаты" />
+      <Text fx:id="numberUPDText" layoutX="770.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер УПД" />
+      <Text fx:id="dateText" layoutX="771.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата" />
+      <ComboBox fx:id="statusComboBox" layoutX="771.0" layoutY="81.0" onAction="#onStatusComboBoxAction" prefHeight="25.0" prefWidth="215.0" />
+      <ComboBox fx:id="contractorComboBox" layoutX="771.0" layoutY="217.0" onAction="#onContractorComboBoxAction" prefHeight="25.0" prefWidth="215.0" />
+      <Text fx:id="contractorText" layoutX="770.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Покупатель" />
+      <TableView fx:id="findRealizeTableView" layoutX="274.0" layoutY="274.0" prefHeight="283.0" prefWidth="842.0">
+        <columns>
+          <TableColumn fx:id="statusTableColumn" prefWidth="90.0" text="Статус оплаты" />
+          <TableColumn fx:id="DateTableColumn" prefWidth="61.0" text="Дата" />
+            <TableColumn fx:id="numberUPDTableColumn" prefWidth="93.0" text="Номер УПД" />
+            <TableColumn fx:id="contractorTableColumn" prefWidth="100.0" text="Покупатель" />
+            <TableColumn fx:id="timeShipmentTableColumn" prefWidth="237.0" text="Фактическое время отгрузки со склада" />
+            <TableColumn fx:id="adressTableColumn" prefWidth="165.0" text="Адрес грузополучателя" />
+            <TableColumn fx:id="dateReceiveTableColumn" prefWidth="95.0" text="Дата приёмки" />
+        </columns>
+      </TableView>
+      <Button fx:id="findButton" layoutX="1014.0" layoutY="217.0" mnemonicParsing="false" onAction="#onFindButtonClick" text="поиск" />
+      <Button fx:id="addRealizeButton" layoutX="37.0" layoutY="196.0" mnemonicParsing="false" onAction="#onAddRealizeButtonClick" prefHeight="89.0" prefWidth="215.0" text="Добавить" />
+      <Button disable="true" layoutX="38.0" layoutY="297.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="215.0" text="Найти" />
+      <Button fx:id="viewRealzeButton" layoutX="37.0" layoutY="403.0" mnemonicParsing="false" onAction="#onViewRealzeButtonClick" prefHeight="89.0" prefWidth="215.0" text="Просмотр" />
+      <Button fx:id="exitButton" layoutX="38.0" layoutY="513.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="89.0" prefWidth="215.0" text="Выйти" />
+      <Button fx:id="editRealizeButton" layoutX="1007.0" layoutY="577.0" mnemonicParsing="false" onAction="#onEditRealizeButtonClick" prefHeight="25.0" prefWidth="112.0" text="редактировать" />
+   </children>
+</AnchorPane>

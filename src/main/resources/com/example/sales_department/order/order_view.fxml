@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="642.0" prefWidth="1131.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.order.OrderView">
+    <children>
+        <Label fx:id="viewOrderLabel" layoutX="393.0" layoutY="14.0" text="Реестр заказов">
+            <font>
+                <Font size="29.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="332.0" layoutY="69.0" prefHeight="545.0" prefWidth="777.0">
+         <children>
+            <TableView fx:id="viewOrderTableView" layoutX="14.0" layoutY="23.0" prefHeight="487.0" prefWidth="758.0">
+               <columns>
+                  <TableColumn fx:id="numberOrderTableColumn" prefWidth="124.0" text="Номер заказа" />
+                  <TableColumn fx:id="dateReceiveTableColumn" prefWidth="133.0" text="Дата поступления" />
+                  <TableColumn fx:id="contractorTableColumn" minWidth="8.0" prefWidth="234.0" text="Покупатель" />
+                  <TableColumn fx:id="startShipmentTableColumn" prefWidth="117.0" text="Начало поставки" />
+                  <TableColumn fx:id="endShipmentTableColumn" prefWidth="149.0" text="Окончание поставки" />
+               </columns>
+            </TableView>
+         </children>
+        </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="611.0" prefWidth="322.0">
+         <children>
+            <Button fx:id="addOrderButton" layoutX="61.0" layoutY="97.0" mnemonicParsing="false" onAction="#onAddOrderButtonClick" prefHeight="70.0" prefWidth="230.0" text="Создание нового заказа">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="findOrderButton" layoutX="61.0" layoutY="216.0" mnemonicParsing="false" onAction="#onFindOderButtonClick" prefHeight="70.0" prefWidth="230.0" text="Найти существующий заказ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button disable="true" layoutX="61.0" layoutY="336.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Реестр заказов">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="exitButton" layoutX="61.0" layoutY="452.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="70.0" prefWidth="230.0" text="Выход">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>

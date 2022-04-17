@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="643.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.realization.RealizeMenu">
+   <children>
+      <Button fx:id="addRealizeButton" layoutX="196.0" layoutY="112.0" mnemonicParsing="false" onAction="#onAddRealizeButtonClick" prefHeight="91.0" prefWidth="226.0" text="Добавить реализацию" />
+      <Button fx:id="editRealizeButton" layoutX="196.0" layoutY="209.0" mnemonicParsing="false" onAction="#onEditRealizeButtonClick" prefHeight="91.0" prefWidth="226.0" text="Поиск существующей реализации" />
+      <Button fx:id="viewRealizeButton" layoutX="196.0" layoutY="309.0" mnemonicParsing="false" onAction="#onViewRealizeButtonClick" prefHeight="91.0" prefWidth="226.0" text="Просмотр реализаций" />
+      <Button fx:id="exitButton" layoutX="196.0" layoutY="413.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="91.0" prefWidth="226.0" text="Выход" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="417.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.order.AddProductOrdrer">
+    <children>
+      <Label layoutX="204.0" layoutY="37.0" text="Добавление товара в заказ">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="addProductInOrderAnchorPane" layoutX="62.0" layoutY="80.0" prefHeight="318.0" prefWidth="647.0">
+         <children>
+            <TableView fx:id="nomenclatureProductTableView" layoutX="118.0" layoutY="59.0" prefHeight="200.0" prefWidth="411.0">
+              <columns>
+                <TableColumn fx:id="productCipherTableColumn" prefWidth="113.0" text="Шифр товара" />
+                <TableColumn fx:id="productNameTableColumn" prefWidth="224.0" text="Наименование товара" />
+                  <TableColumn fx:id="weightTableColumn" minWidth="9.0" prefWidth="73.0" text="Вес в кг" />
+              </columns>
+            </TableView>
+            <Label layoutX="118.0" layoutY="23.0" text="Номенклатура товаров">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="addProductInOrderButton" layoutX="118.0" layoutY="272.0" mnemonicParsing="false" onAction="#onAddProductInOrderButtonClick" text="Добваить товар" />
+            <Button fx:id="cancelButton" layoutX="471.0" layoutY="272.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Отмена" />
+            <Button fx:id="deleteProductFromOrderButton" layoutX="241.0" layoutY="272.0" mnemonicParsing="false" onAction="#onDeleteProductFromOrderButtonClick" text="Удалить товар" />
+         </children>
+      </AnchorPane>
+      <Accordion layoutX="105.0" layoutY="109.0" />
+    </children>
+</AnchorPane>

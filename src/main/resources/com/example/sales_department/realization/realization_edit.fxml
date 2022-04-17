@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="850.0" prefWidth="1141.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.realization.RealizationEdit">
+    <children>
+        <Label fx:id="editRealizeText" layoutX="443.0" layoutY="14.0" text="Редактирование реализации">
+            <font>
+                <Font size="29.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="219.0" layoutY="70.0" prefHeight="461.0" prefWidth="729.0">
+            <children>
+                <Label fx:id="numberUPDText" layoutX="15.0" layoutY="6.0" text="Номер УПД" />
+                <Label fx:id="DateText" layoutX="254.0" layoutY="6.0" text="Дата" />
+                <Label fx:id="statusText" layoutX="14.0" layoutY="48.0" text="Статус оплаты" />
+                <TextField fx:id="numberUPDTextField" layoutX="17.0" layoutY="23.0" />
+                <Label fx:id="adressText" layoutX="16.0" layoutY="93.0" text="Адрес грузополучателя" />
+                <Label fx:id="listProductText" layoutX="20.0" layoutY="183.0" text="Список товаров" />
+                <TableView fx:id="listProductTableView" layoutX="14.0" layoutY="215.0" prefHeight="200.0" prefWidth="685.0">
+                    <columns>
+                        <TableColumn fx:id="codeProductTableColumn" prefWidth="129.0" text="Шифр товара" />
+                        <TableColumn fx:id="nameProductTableColumn" prefWidth="182.0" text="Наименование товара" />
+                        <TableColumn fx:id="priceTableColumn" minWidth="3.0" prefWidth="110.0" text="Цена за единицу" />
+                        <TableColumn fx:id="amountTableColumn" minWidth="0.0" prefWidth="121.0" text="Количество" />
+                        <TableColumn fx:id="fullPriceTableColumn" prefWidth="142.0" text="Стоимость" />
+                    </columns>
+                </TableView>
+                <Label fx:id="sumText" layoutX="571.0" layoutY="423.0" text="ИТОГО" />
+                <Label fx:id="digitSumText" layoutX="641.0" layoutY="423.0" text="0.00" />
+            <DatePicker fx:id="dateDatePicker" layoutX="251.0" layoutY="23.0" />
+            <TextField fx:id="statusTextField" layoutX="18.0" layoutY="65.0" />
+            <Label fx:id="timeShipmentText" layoutX="251.0" layoutY="48.0" text="Фактическое время отгрузки со склада" />
+            <ComboBox fx:id="adressComboBox" layoutX="18.0" layoutY="114.0" onAction="#onAdressComboBoxAction" prefWidth="150.0" />
+            <Label fx:id="numberOrderText" layoutX="251.0" layoutY="93.0" text="Номер заказа" />
+            <ComboBox fx:id="numberOrderComboBox" layoutX="251.0" layoutY="114.0" onAction="#onNumberOrderComboBoxAction" prefWidth="150.0" />
+            <Label fx:id="dateReceiveLabel" layoutX="493.0" layoutY="6.0" text="Дата приёмки" />
+            <TextField fx:id="timeShipmentTextField" layoutX="252.0" layoutY="65.0" />
+            <DatePicker fx:id="dateReceiveDatePicker" layoutX="493.0" layoutY="23.0" />
+            </children>
+        </AnchorPane>
+        <Button fx:id="saveButton" layoutX="231.0" layoutY="553.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="Сохранить изменения" />
+        <Button fx:id="removeButton" layoutX="790.0" layoutY="553.0" mnemonicParsing="false" onAction="#onRemoveButtonClick" text="Отменить изменения" />
+    </children>
+</AnchorPane>
