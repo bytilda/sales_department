@@ -41,6 +41,18 @@ public class Contract {
     @OneToMany(mappedBy = "idContract")
     private Set<Specification> specifications = new LinkedHashSet<>();
 
+    @Lob
+    @Column(name = "city", nullable = false)
+    private String city;
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     public Set<Specification> getSpecifications() {
         return specifications;
     }
