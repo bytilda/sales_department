@@ -8,10 +8,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import net.rgielen.fxweaver.core.FxWeaver;
+import net.rgielen.fxweaver.core.FxmlView;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+@Component
+@FxmlView("/com/example/sales_department/contract/menu_contract.fxml")
 public class MenuContract {
+    @Autowired
+    FxWeaver fxWeaver;
 
     @FXML
     private Button addContractButton;

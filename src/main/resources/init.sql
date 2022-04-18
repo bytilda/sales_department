@@ -19,7 +19,7 @@ insert into okpo (okpo) values (56984043);
 insert into okpo (okpo) values (12445124);
 insert into okpo (okpo) values (43534545);
 insert into okpo (okpo) values (65756756);
-insert into okpo (okpo) values (12445124);
+insert into okpo (okpo) values (72844124);
 insert into okpo (okpo) values (87998779);
 insert into okpo (okpo) values (12876124);
 insert into okpo (okpo) values (76885124);
