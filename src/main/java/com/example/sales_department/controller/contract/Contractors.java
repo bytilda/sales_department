@@ -45,6 +45,9 @@ public class Contractors {
     private TableColumn<?, ?> labelAddressTableColumn;
 
     @FXML
+    private TableColumn<?, ?> nameTableColumn;
+
+    @FXML
     private TableColumn<?, ?> unnTableColumn;
 
     @FXML

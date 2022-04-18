@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="655.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.contract.AddContractors">
    <children>
-      <Text layoutX="71.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Юридический адрес">
+      <Text layoutX="71.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Юридический адрес">
          <font>
             <Font size="15.0" />
          </font></Text>
@@ -30,7 +30,7 @@
          <font>
             <Font size="15.0" />
          </font></Text>
-      <TextField fx:id="legalAddressTextField" layoutX="71.0" layoutY="102.0" />
+      <TextField fx:id="nameTextField" layoutX="67.0" layoutY="115.0" />
       <TextField fx:id="estimatedTextField" layoutX="71.0" layoutY="264.0" />
       <TextField fx:id="unnTextField" layoutX="71.0" layoutY="183.0" />
       <TextField fx:id="kppTextField" layoutX="390.0" layoutY="183.0" />
@@ -54,5 +54,11 @@
          </font>
       </Text>
       <ComboBox fx:id="okpoComboBox" layoutX="390.0" layoutY="264.0" prefWidth="150.0" />
+      <ComboBox fx:id="adressComboBox" layoutX="71.0" layoutY="334.0" onAction="#onAdressComboBoxAction" prefWidth="150.0" />
+      <Text fx:id="nameText" layoutX="67.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Название организации">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

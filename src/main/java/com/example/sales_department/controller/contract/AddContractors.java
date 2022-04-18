@@ -36,10 +36,13 @@ public class AddContractors {
     private TextField kppTextField;
 
     @FXML
-    private TextField legalAddressTextField;
+    private TextField nameTextField;
 
     @FXML
     private ComboBox<?> okpoComboBox;
+
+    @FXML
+    private ComboBox<?> adressComboBox;
 
     @FXML
     private TextField unnTextField;
