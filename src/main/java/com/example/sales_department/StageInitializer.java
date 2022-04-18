@@ -17,7 +17,7 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
         FXMLLoader fxmlLoader = new FXMLLoader(ChartApplication.class.getResource("hello-view.fxml"));
         Scene scene = null;
         try {
-            scene = new Scene(fxmlLoader.load(), 320, 240);
+            scene = new Scene(fxmlLoader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
