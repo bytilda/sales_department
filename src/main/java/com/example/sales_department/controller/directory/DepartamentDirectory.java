@@ -40,22 +40,16 @@ public class DepartamentDirectory {
 
     @FXML
     void onExitButtonClick(ActionEvent event) {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/com/example/sales_department/hello-view.fxml"));
-        Parent root = null;
-        try {
-            root = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+
     }
 
     @FXML
     void onNomenclatureProductButtonClick(ActionEvent event) {
+        Parent root = fxWeaver.loadView(ProductNomenclature.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
     }
 

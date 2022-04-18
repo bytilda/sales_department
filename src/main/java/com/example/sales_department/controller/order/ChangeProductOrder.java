@@ -11,10 +11,18 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import net.rgielen.fxweaver.core.FxWeaver;
+import net.rgielen.fxweaver.core.FxmlView;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+@Component
+@FxmlView("/com/example/sales_department/order/change_product_order.fxml")
 public class ChangeProductOrder {
+    @Autowired
+    FxWeaver fxWeaver;
 
     @FXML
     private AnchorPane addProductInOrderAnchorPane;
@@ -50,35 +58,23 @@ public class ChangeProductOrder {
 
     @FXML
     void onCancelButtonClick(ActionEvent event) {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/com/example/sales_department/order/order_edit.fxml"));
-        Parent root = null;
-        try {
-            root = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Parent root = fxWeaver.loadView(OrderEdit.class);
         Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+
 
     }
 
     @FXML
     void onConfirmChangesButtonClick(ActionEvent event) {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/com/example/sales_department/order/order_edit.fxml"));
-        Parent root = null;
-        try {
-            root = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Parent root = fxWeaver.loadView(OrderEdit.class);
         Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+
 
     }
 

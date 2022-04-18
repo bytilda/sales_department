@@ -2,12 +2,25 @@ package com.example.sales_department.controller.order;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import net.rgielen.fxweaver.core.FxWeaver;
+import net.rgielen.fxweaver.core.FxmlView;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
+@FxmlView("/com/example/sales_department/contract/add_product_ordrer.fxml")
 public class AddProductOrdrer {
+
+    @Autowired
+    FxWeaver fxWeaver;
 
     @FXML
     private AnchorPane addProductInOrderAnchorPane;
@@ -36,10 +49,16 @@ public class AddProductOrdrer {
     @FXML
     void onAddProductInOrderButtonClick(ActionEvent event) {
 
+
     }
 
     @FXML
     void onCancelButtonClick(ActionEvent event) {
+        Parent root = fxWeaver.loadView(OrderAdd.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
