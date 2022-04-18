@@ -10,59 +10,70 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="850.0" prefWidth="1141.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.realization.RealizationAdd">
+<AnchorPane prefHeight="850.0" prefWidth="1141.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.realization.RealizationAdd">
     <children>
         <Label fx:id="addRealizeLabel" layoutX="487.0" layoutY="14.0" text="Добавление реализации">
             <font>
                 <Font size="29.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="427.0" layoutY="95.0" prefHeight="687.0" prefWidth="700.0">
+        <AnchorPane layoutX="322.0" layoutY="96.0" prefHeight="687.0" prefWidth="700.0">
             <children>
-                <Label fx:id="numberUPDLabel" layoutX="13.0" layoutY="47.0" text="Номер УПД">
+                <Label fx:id="numberUPDLabel" layoutX="9.0" layoutY="14.0" text="Номер УПД">
                <font>
                   <Font size="15.0" />
                </font></Label>
-                <Label fx:id="DateLabel" layoutX="13.0" layoutY="148.0" text="Дата ">
+                <Label fx:id="DateLabel" layoutX="343.0" layoutY="14.0" text="Дата ">
                <font>
                   <Font size="15.0" />
                </font></Label>
-                <Label fx:id="timeShipmentLabel" layoutX="9.0" layoutY="211.0" text="Фактическое время отгрузки со склада">
+                <Label fx:id="timeShipmentLabel" layoutX="11.0" layoutY="567.0" text="Дата отгрузки">
                <font>
                   <Font size="15.0" />
                </font></Label>
-                <TextField fx:id="numberUPDTextField" layoutX="305.0" layoutY="45.0" prefHeight="25.0" prefWidth="174.0" />
-                <DatePicker fx:id="dateDatePicker" layoutX="305.0" layoutY="146.0" />
-                <Label fx:id="listProductLabel" layoutX="9.0" layoutY="239.0" text="Список товаров">
+                <TextField fx:id="numberUPDTextField" layoutX="107.0" layoutY="12.0" prefHeight="25.0" prefWidth="174.0" />
+                <DatePicker fx:id="dateDatePicker" layoutX="391.0" layoutY="12.0" />
+                <Label fx:id="listProductLabel" layoutX="329.0" layoutY="170.0" prefHeight="25.0" prefWidth="125.0" text="Список товаров">
                <font>
                   <Font size="15.0" />
                </font></Label>
-                <TableView fx:id="listProductTableView" layoutX="8.0" layoutY="269.0" prefHeight="200.0" prefWidth="685.0">
+                <TableView fx:id="listProductTableView" layoutX="8.0" layoutY="195.0" prefHeight="337.0" prefWidth="789.0">
                     <columns>
-                        <TableColumn fx:id="codeProductTableColumn" prefWidth="129.0" text="Шифр товара" />
-                        <TableColumn fx:id="nameProductTableColumn" prefWidth="182.0" text="Наименование товара" />
-                        <TableColumn fx:id="priceTableColumn" minWidth="3.0" prefWidth="110.0" text="Цена за единицу" />
-                        <TableColumn fx:id="amountTableColumn" minWidth="0.0" prefWidth="121.0" text="Количество" />
-                        <TableColumn fx:id="fullPriceTableColumn" prefWidth="142.0" text="Стоимость" />
+                        <TableColumn fx:id="codeProductTableColumn" prefWidth="95.0" text="Шифр товара" />
+                        <TableColumn fx:id="nameProductTableColumn" prefWidth="216.0" text="Наименование товара" />
+                  <TableColumn prefWidth="104.0" text="Ед. измерения" />
+                        <TableColumn fx:id="amountTableColumn" minWidth="0.0" prefWidth="116.0" text="Количество" />
+                        <TableColumn fx:id="priceTableColumn" minWidth="3.0" prefWidth="123.0" text="Цена за единицу" />
+                        <TableColumn fx:id="fullPriceTableColumn" prefWidth="134.0" text="Стоимость" />
                     </columns>
                 </TableView>
-                <Label fx:id="sumLabel" layoutX="589.0" layoutY="469.0" text="ИТОГО" />
-                <Label fx:id="digitLabel" layoutX="644.0" layoutY="469.0" text="0.00" />
-            <TextField fx:id="timeShipmentTextField" layoutX="305.0" layoutY="209.0" prefHeight="25.0" prefWidth="174.0" />
-            <Label fx:id="adressLabel" layoutX="17.0" layoutY="84.0" text="Адрес грузополучателя">
+                <Label fx:id="sumLabel" layoutX="605.0" layoutY="535.0" text="ИТОГО" />
+                <Label fx:id="digitLabel" layoutX="660.0" layoutY="535.0" text="0.00" />
+            <Label fx:id="adressLabel" layoutX="10.0" layoutY="114.0" text="Адрес грузополучателя">
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <ComboBox fx:id="adressLabelComboBox" layoutX="305.0" layoutY="82.0" onAction="#onAdressComboBoxAction" prefHeight="25.0" prefWidth="174.0" />
-            <ComboBox fx:id="numberOrderComboBox" layoutX="305.0" layoutY="115.0" onAction="#onNumberOrderComboBoxAction" prefHeight="25.0" prefWidth="174.0" />
-            <Label fx:id="numberOrderLabel" layoutX="17.0" layoutY="117.0" text="Номер заказа">
+            <ComboBox fx:id="adressLabelComboBox" layoutX="217.0" layoutY="112.0" onAction="#onAdressComboBoxAction" prefHeight="25.0" prefWidth="174.0" />
+            <ComboBox fx:id="numberOrderComboBox" layoutX="517.0" layoutY="79.0" onAction="#onNumberOrderComboBoxAction" prefHeight="25.0" prefWidth="174.0" />
+            <Label fx:id="numberOrderLabel" layoutX="414.0" layoutY="81.0" text="Номер заказа">
                <font>
                   <Font size="15.0" />
                </font></Label>
-              <Button fx:id="addRealizeButton" layoutX="11.0" layoutY="648.0" mnemonicParsing="false" onAction="#onAddRealizeButtonClick" text="Добавить реализацию" />
+              <Button fx:id="addRealizeButton" layoutX="11.0" layoutY="648.0" mnemonicParsing="false" onAction="#onAddRealizeButtonClick" text="Внести реализацию" />
               <Button fx:id="removeRealizeButton" layoutX="609.0" layoutY="648.0" mnemonicParsing="false" onAction="#onRemoveRealizeButtonClick" text="Отменить" />
-            <Label fx:id="dateReceiveLabel" layoutX="10.0" layoutY="186.0" text="Дата приёмки" />
-            <DatePicker fx:id="dateReceiveDatePicker" layoutX="305.0" layoutY="174.0" />
+            <Label fx:id="dateReceiveLabel" layoutX="414.0" layoutY="567.0" text="Дата приёмки">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <DatePicker fx:id="dateReceiveDatePicker" layoutX="522.0" layoutY="565.0" />
+            <DatePicker fx:id="shippingDateDatePicker" layoutX="113.0" layoutY="565.0" />
+            <Label fx:id="numberUPDLabel1" layoutX="10.0" layoutY="81.0" prefHeight="21.0" prefWidth="97.0" text="Покупатель">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="customerChoiceBox" layoutX="217.0" layoutY="79.0" prefHeight="25.0" prefWidth="174.0" />
+            <Label layoutX="304.0" layoutY="16.0" text="от" />
             </children>
         </AnchorPane>
       <AnchorPane prefHeight="850.0" prefWidth="322.0">

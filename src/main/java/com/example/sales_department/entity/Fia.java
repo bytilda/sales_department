@@ -17,5 +17,10 @@ public class Fia {
         this.id = id;
     }
 
+    @Override
+    public String toString(){
+        return id;
+    }
+
     //TODO Reverse Engineering! Migrate other columns to the entity
 }
