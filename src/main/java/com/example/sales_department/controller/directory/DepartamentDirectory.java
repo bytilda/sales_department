@@ -1,5 +1,9 @@
 package com.example.sales_department.controller.directory;
 
+import com.example.sales_department.controller.HelloController;
+import com.example.sales_department.controller.contract.Contractors;
+import com.example.sales_department.controller.contract.Specification;
+import com.example.sales_department.controller.contract.ViewContract;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,12 +39,20 @@ public class DepartamentDirectory {
 
     @FXML
     void onContractorsButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(Contractors.class);
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void onExitButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(HelloController.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -55,7 +67,11 @@ public class DepartamentDirectory {
 
     @FXML
     void onSpecificationsButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(Specification.class);
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

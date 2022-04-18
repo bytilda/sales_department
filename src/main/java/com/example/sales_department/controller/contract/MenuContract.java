@@ -1,5 +1,6 @@
 package com.example.sales_department.controller.contract;
 
+import com.example.sales_department.controller.HelloController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,43 +42,56 @@ public class MenuContract {
 
     @FXML
     void onAddContractButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(AddContract.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void onContractListButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(ViewContract.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void onCotractorsButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(Contractors.class);
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void onExitButtonClick(ActionEvent event) {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/com/example/sales_department/hello-view.fxml"));
-        Parent root = null;
-        try {
-            root = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Parent root = fxWeaver.loadView(HelloController.class);
         Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
     void onFindContractButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(ContractManagment.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void onSpecificationsButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(Specification.class);
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
 }
