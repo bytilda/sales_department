@@ -1,7 +1,15 @@
 package com.example.sales_department.controller.realization;
 
+import com.example.sales_department.controller.contract.MenuContract;
+import com.example.sales_department.entity.Fia;
+import com.example.sales_department.service.FiasService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -9,8 +17,23 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import net.rgielen.fxweaver.core.FxWeaver;
+import net.rgielen.fxweaver.core.FxmlView;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
+import java.util.stream.Collectors;
+
+@Component
+@FxmlView("/com/example/sales_department/realization/realization_add.fxml")
 public class RealizationAdd {
+    @Autowired
+    FxWeaver fxWeaver;
+
+    @Autowired
+    FiasService fiasService;
 
     @FXML
     private Label DateLabel;
@@ -28,7 +51,7 @@ public class RealizationAdd {
     private Label adressLabel;
 
     @FXML
-    private ComboBox<?> adressLabelComboBox;
+    private ComboBox<String> adressLabelComboBox;
 
     @FXML
     private TableColumn<?, ?> amountTableColumn;
@@ -92,6 +115,14 @@ public class RealizationAdd {
 
     @FXML
     private Button viewRealizeButton;
+
+    @FXML
+    public void initialize() {
+        ObservableList<String> data = FXCollections.observableArrayList(
+                fiasService.getAll().stream().map(Fia::getId).collect(Collectors.toList()));
+        adressLabelComboBox.setItems(data);
+    }
+
 
     @FXML
     void onAddRealizeButtonClick(ActionEvent event) {
