@@ -1,5 +1,6 @@
 package com.example.sales_department.controller.realization;
 
+import com.example.sales_department.controller.HelloController;
 import com.example.sales_department.controller.contract.MenuContract;
 import com.example.sales_department.service.FiasService;
 import com.example.sales_department.service.RealizationService;
@@ -48,17 +49,29 @@ public class RealizeMenu {
 
     @FXML
     void onEditRealizeButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(RealizeManagment.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void onExitButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(HelloController.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void onViewRealizeButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(RealizationView.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

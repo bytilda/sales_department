@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="850.0" prefWidth="1141.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.realization.RealizationAdd">
     <children>
-        <Label fx:id="addRealizeLabel" layoutX="487.0" layoutY="14.0" text="Добавление реализации">
+        <Label fx:id="addRealizeLabel" layoutX="406.0" layoutY="14.0" text="Внесение реализации">
             <font>
                 <Font size="29.0" />
             </font>
@@ -27,7 +27,7 @@
                <font>
                   <Font size="15.0" />
                </font></Label>
-                <Label fx:id="timeShipmentLabel" layoutX="11.0" layoutY="567.0" text="Дата отгрузки">
+                <Label fx:id="timeShipmentLabel" layoutX="9.0" layoutY="607.0" text="Дата отгрузки">
                <font>
                   <Font size="15.0" />
                </font></Label>
@@ -39,16 +39,22 @@
                </font></Label>
                 <TableView fx:id="listProductTableView" layoutX="8.0" layoutY="195.0" prefHeight="337.0" prefWidth="789.0">
                     <columns>
-                        <TableColumn fx:id="codeProductTableColumn" prefWidth="95.0" text="Шифр товара" />
-                        <TableColumn fx:id="nameProductTableColumn" prefWidth="216.0" text="Наименование товара" />
-                  <TableColumn prefWidth="104.0" text="Ед. измерения" />
+                        <TableColumn fx:id="codeProductTableColumn" editable="false" prefWidth="95.0" text="Шифр товара" />
+                        <TableColumn fx:id="nameProductTableColumn" editable="false" prefWidth="216.0" text="Наименование товара" />
+                  <TableColumn fx:id="unitTableColumn" prefWidth="104.0" text="Ед. измерения" />
                         <TableColumn fx:id="amountTableColumn" minWidth="0.0" prefWidth="116.0" text="Количество" />
                         <TableColumn fx:id="priceTableColumn" minWidth="3.0" prefWidth="123.0" text="Цена за единицу" />
-                        <TableColumn fx:id="fullPriceTableColumn" prefWidth="134.0" text="Стоимость" />
+                        <TableColumn fx:id="fullPriceTableColumn" editable="false" prefWidth="134.0" text="Стоимость" />
                     </columns>
                 </TableView>
-                <Label fx:id="sumLabel" layoutX="605.0" layoutY="535.0" text="ИТОГО" />
-                <Label fx:id="digitLabel" layoutX="660.0" layoutY="535.0" text="0.00" />
+                <Label fx:id="sumLabel" layoutX="644.0" layoutY="533.0" text="ИТОГО">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+                <Label fx:id="digitLabel" layoutX="728.0" layoutY="535.0" prefHeight="17.0" prefWidth="55.0" text="0.00" textAlignment="RIGHT">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
             <Label fx:id="adressLabel" layoutX="10.0" layoutY="114.0" text="Адрес грузополучателя">
                <font>
                   <Font size="15.0" />
@@ -59,14 +65,17 @@
                <font>
                   <Font size="15.0" />
                </font></Label>
-              <Button fx:id="addRealizeButton" layoutX="11.0" layoutY="648.0" mnemonicParsing="false" onAction="#onAddRealizeButtonClick" text="Внести реализацию" />
+              <Button fx:id="addRealizeButton" layoutX="11.0" layoutY="648.0" mnemonicParsing="false" onAction="#onAddRealizeButtonClick" text="Внести реализацию">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
               <Button fx:id="removeRealizeButton" layoutX="609.0" layoutY="648.0" mnemonicParsing="false" onAction="#onRemoveRealizeButtonClick" text="Отменить" />
-            <Label fx:id="dateReceiveLabel" layoutX="414.0" layoutY="567.0" text="Дата приёмки">
+            <Label fx:id="dateReceiveLabel" layoutX="412.0" layoutY="607.0" text="Дата приёмки">
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <DatePicker fx:id="dateReceiveDatePicker" layoutX="522.0" layoutY="565.0" />
-            <DatePicker fx:id="shippingDateDatePicker" layoutX="113.0" layoutY="565.0" />
+            <DatePicker fx:id="dateReceiveDatePicker" layoutX="520.0" layoutY="605.0" />
+            <DatePicker fx:id="shippingDateDatePicker" layoutX="111.0" layoutY="605.0" />
             <Label fx:id="numberUPDLabel1" layoutX="10.0" layoutY="81.0" prefHeight="21.0" prefWidth="97.0" text="Покупатель">
                <font>
                   <Font size="15.0" />
@@ -74,21 +83,22 @@
             </Label>
             <ComboBox fx:id="customerChoiceBox" layoutX="217.0" layoutY="79.0" prefHeight="25.0" prefWidth="174.0" />
             <Label layoutX="304.0" layoutY="16.0" text="от" />
+            <Button fx:id="addProductInOrderButton" layoutX="10.0" layoutY="540.0" mnemonicParsing="false" onAction="#onAddProductInOrderButtonClick" prefHeight="25.0" prefWidth="174.0" text="Изменить список товаров" />
             </children>
         </AnchorPane>
       <AnchorPane prefHeight="850.0" prefWidth="322.0">
          <children>
-            <Button disable="true" layoutX="61.0" layoutY="97.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Добавление реализации">
+            <Button disable="true" layoutX="61.0" layoutY="104.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Внесение реализации">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="findRealizeButton" layoutX="61.0" layoutY="216.0" mnemonicParsing="false" onAction="#onFindRealizeButtonClick" prefHeight="70.0" prefWidth="230.0" text="Найти существующую реализацию">
+            <Button fx:id="findRealizeButton" layoutX="61.0" layoutY="201.0" mnemonicParsing="false" onAction="#onFindRealizeButtonClick" prefHeight="70.0" prefWidth="230.0" text="Найти существующую реализацию" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="viewRealizeButton" layoutX="67.0" layoutY="333.0" mnemonicParsing="false" onAction="#onViewRealizeButtonClick" prefHeight="70.0" prefWidth="230.0" text="Реестр реализаций">
+            <Button fx:id="viewRealizeButton" layoutX="61.0" layoutY="297.0" mnemonicParsing="false" onAction="#onViewRealizeButtonClick" prefHeight="70.0" prefWidth="230.0" text="Реестр реализаций">
                <font>
                   <Font size="15.0" />
                </font>

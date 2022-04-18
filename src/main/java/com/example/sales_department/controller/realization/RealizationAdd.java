@@ -1,11 +1,11 @@
 package com.example.sales_department.controller.realization;
 
-import com.example.sales_department.entity.Fia;
-import com.example.sales_department.service.FiasService;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.example.sales_department.controller.HelloController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -13,20 +13,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 
 @Component
 @FxmlView("/com/example/sales_department/realization/realization_add.fxml")
 public class RealizationAdd {
     @Autowired
     FxWeaver fxWeaver;
-
-    @Autowired
-    FiasService fiasService;
 
     @FXML
     private Label addRealizeLabel;
@@ -59,6 +56,9 @@ public class RealizationAdd {
     private TableColumn<?, ?> nameProductTableColumn;
 
     @FXML
+    private TableColumn<?, ?> unitTableColumn;
+
+    @FXML
     private TableColumn<?, ?> amountTableColumn;
 
     @FXML
@@ -77,7 +77,7 @@ public class RealizationAdd {
     private Label adressLabel;
 
     @FXML
-    private ComboBox<Fia> adressLabelComboBox;
+    private ComboBox<?> adressLabelComboBox;
 
     @FXML
     private ComboBox<?> numberOrderComboBox;
@@ -107,6 +107,9 @@ public class RealizationAdd {
     private ComboBox<?> customerChoiceBox;
 
     @FXML
+    private Button addProductInOrderButton;
+
+    @FXML
     private Button findRealizeButton;
 
     @FXML
@@ -116,12 +119,8 @@ public class RealizationAdd {
     private Button ExitButton;
 
     @FXML
-    public void initialize() {
-        adressLabelComboBox.setEditable(true);
+    void onAddProductInOrderButtonClick(ActionEvent event) {
 
-        ObservableList<Fia> data = FXCollections.observableArrayList(
-                fiasService.getAll());
-        adressLabelComboBox.setItems(data);
     }
 
     @FXML
@@ -136,12 +135,20 @@ public class RealizationAdd {
 
     @FXML
     void onExitButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(HelloController.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void onFindRealizeButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(RealizeManagment.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -151,12 +158,20 @@ public class RealizationAdd {
 
     @FXML
     void onRemoveRealizeButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(RealizeMenu.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void onViewRealizeButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(RealizationView.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

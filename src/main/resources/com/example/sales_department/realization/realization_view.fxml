@@ -7,27 +7,48 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="563.0" prefWidth="1141.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.realization.RealizationView">
+<AnchorPane prefHeight="860.0" prefWidth="1376.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.realization.RealizationView">
     <children>
-        <Label fx:id="viewRealizeText" layoutX="443.0" layoutY="14.0" text="Просмотр реализаций">
+        <Label fx:id="viewRealizeText" layoutX="561.0" layoutY="10.0" text="Реестр реализаций">
             <font>
                 <Font size="29.0" />
             </font>
         </Label>
-      <TableView fx:id="viewRealizeTableView" layoutX="299.0" layoutY="151.0" prefHeight="336.0" prefWidth="821.0">
+      <TableView fx:id="viewRealizeTableView" layoutX="317.0" layoutY="113.0" prefHeight="653.0" prefWidth="1038.0">
         <columns>
-          <TableColumn fx:id="statusTableColumn" prefWidth="89.0" text="Статус оплаты" />
-          <TableColumn fx:id="dateTableColumn" prefWidth="56.0" text="Дата" />
-            <TableColumn fx:id="numberUPDTableColumn" prefWidth="90.0" text="Номер УПД" />
-            <TableColumn fx:id="contractorTableColumn" prefWidth="85.0" text="Покупатель" />
-            <TableColumn fx:id="timeShipmentTableColumn" prefWidth="251.0" text="Фактическое время отгрузки со склада" />
-            <TableColumn fx:id="adressTableColumn" prefWidth="148.0" text="Адрес грузополучателя" />
-            <TableColumn fx:id="dateReceiveTableColumn" prefWidth="100.0" text="Дата приёмки" />
+            <TableColumn fx:id="numberUPDTableColumn" prefWidth="73.0" text="Номер УПД" />
+          <TableColumn fx:id="dateTableColumn" prefWidth="87.0" text="Дата" />
+            <TableColumn fx:id="contractorTableColumn" prefWidth="157.0" text="Покупатель" />
+          <TableColumn fx:id="statusTableColumn" prefWidth="91.0" text="Статус оплаты" />
+            <TableColumn fx:id="adressTableColumn" prefWidth="241.0" text="Адрес грузополучателя" />
+            <TableColumn fx:id="timeShipmentTableColumn" prefWidth="136.0" text="Дата отгрузки" />
+            <TableColumn fx:id="dateReceiveTableColumn" prefWidth="121.0" text="Дата приёмки" />
+            <TableColumn fx:id="priceTableColumn" prefWidth="131.0" text="Стоимость товаров" />
         </columns>
       </TableView>
-      <Button fx:id="addRealizeButton" layoutX="47.0" layoutY="151.0" mnemonicParsing="false" onAction="#onAddRealizeButtonClick" prefHeight="72.0" prefWidth="213.0" text="Добавление" />
-      <Button fx:id="findRealizeButton" layoutX="47.0" layoutY="240.0" mnemonicParsing="false" onAction="#onFindRealizeButtonClick" prefHeight="72.0" prefWidth="213.0" text="Найти" />
-      <Button disable="true" layoutX="47.0" layoutY="329.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="213.0" text="Просмотр" />
-      <Button fx:id="exitButton" layoutX="47.0" layoutY="413.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="72.0" prefWidth="213.0" text="Выход" />
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="850.0" prefWidth="307.0">
+         <children>
+            <Button layoutX="61.0" layoutY="104.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Добавление реализации">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="findRealizeButton" layoutX="61.0" layoutY="201.0" mnemonicParsing="false" onAction="#onFindRealizeButtonClick" prefHeight="70.0" prefWidth="230.0" text="Найти существующую реализацию" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="viewRealizeButton" disable="true" layoutX="61.0" layoutY="297.0" mnemonicParsing="false" onAction="#onViewRealizeButtonClick" prefHeight="70.0" prefWidth="230.0" text="Реестр реализаций">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="ExitButton" layoutX="61.0" layoutY="492.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="70.0" prefWidth="230.0" text="Выход">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

@@ -4,13 +4,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1017.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1017.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.HelloController">
    <children>
       <Button fx:id="contractButton" layoutX="325.0" layoutY="48.0" mnemonicParsing="false" onAction="#onContractButtonClick" prefHeight="148.0" prefWidth="368.0" text="Договоры">
          <font>
             <Font size="29.0" />
          </font></Button>
-      <Button fx:id="realizationButton" layoutX="325.0" layoutY="422.0" mnemonicParsing="false" onAction="#onRealizationClick" prefHeight="148.0" prefWidth="368.0" text="Реализация">
+      <Button fx:id="realizationButton" layoutX="325.0" layoutY="422.0" mnemonicParsing="false" onAction="#onRealizationClick" prefHeight="148.0" prefWidth="368.0" text="Реализации">
          <font>
             <Font size="29.0" />
          </font></Button>
