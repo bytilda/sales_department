@@ -29,7 +29,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="addProductInOrderButton" layoutX="118.0" layoutY="272.0" mnemonicParsing="false" onAction="#onAddProductInOrderButtonClick" text="Добваить товар" />
+            <Button fx:id="addProductInOrderButton" layoutX="118.0" layoutY="272.0" mnemonicParsing="false" onAction="#onAddProductInOrderButtonClick" text="Добавить товар" />
             <Button fx:id="cancelButton" layoutX="471.0" layoutY="272.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Отмена" />
             <Button fx:id="deleteProductFromOrderButton" layoutX="241.0" layoutY="272.0" mnemonicParsing="false" onAction="#onDeleteProductFromOrderButtonClick" text="Удалить товар" />
          </children>

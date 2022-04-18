@@ -88,7 +88,8 @@ public class OrderAdd {
     void onAddProductInOrderButtonClick(ActionEvent event) {
         Parent root = fxWeaver.loadView(AddProductOrdrer.class);
         Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        //Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
 

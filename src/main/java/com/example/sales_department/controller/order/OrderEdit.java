@@ -94,7 +94,8 @@ public class OrderEdit {
     void onEditProductListInOrderButtonClick(ActionEvent event) {
         Parent root = fxWeaver.loadView(ChangeProductOrder.class);
         Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        //Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
 

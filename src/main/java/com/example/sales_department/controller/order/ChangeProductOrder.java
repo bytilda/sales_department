@@ -33,8 +33,6 @@ public class ChangeProductOrder {
     @FXML
     private Button cancelButton;
 
-    @FXML
-    private Button confirmChangesButton;
 
     @FXML
     private Button deleteProductFromOrderButton;
@@ -58,17 +56,6 @@ public class ChangeProductOrder {
 
     @FXML
     void onCancelButtonClick(ActionEvent event) {
-        Parent root = fxWeaver.loadView(OrderEdit.class);
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-
-
-    }
-
-    @FXML
-    void onConfirmChangesButtonClick(ActionEvent event) {
         Parent root = fxWeaver.loadView(OrderEdit.class);
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
