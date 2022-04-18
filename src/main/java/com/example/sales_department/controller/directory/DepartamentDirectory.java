@@ -57,6 +57,11 @@ public class DepartamentDirectory {
 
     @FXML
     void onNomenclatureProductButtonClick(ActionEvent event) {
+        Parent root = fxWeaver.loadView(ProductNomenclature.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
