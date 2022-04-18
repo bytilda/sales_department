@@ -2,6 +2,7 @@ package com.example.sales_department.controller.order;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,10 +16,11 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
-@FxmlView("/com/example/sales_department/contract/add_product_ordrer.fxml")
-public class AddProductOrdrer {
+import java.io.IOException;
 
+@Component
+@FxmlView("/com/example/sales_department/order/change_product_order.fxml")
+public class ChangeProductOrder {
     @Autowired
     FxWeaver fxWeaver;
 
@@ -30,6 +32,9 @@ public class AddProductOrdrer {
 
     @FXML
     private Button cancelButton;
+
+    @FXML
+    private Button confirmChangesButton;
 
     @FXML
     private Button deleteProductFromOrderButton;
@@ -49,16 +54,27 @@ public class AddProductOrdrer {
     @FXML
     void onAddProductInOrderButtonClick(ActionEvent event) {
 
-
     }
 
     @FXML
     void onCancelButtonClick(ActionEvent event) {
-        Parent root = fxWeaver.loadView(OrderAdd.class);
+        Parent root = fxWeaver.loadView(OrderEdit.class);
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+
+
+    }
+
+    @FXML
+    void onConfirmChangesButtonClick(ActionEvent event) {
+        Parent root = fxWeaver.loadView(OrderEdit.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
 
     }
 

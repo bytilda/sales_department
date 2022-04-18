@@ -1,5 +1,6 @@
 package com.example.sales_department.controller.directory;
 
+import com.example.sales_department.controller.order.OrderManagment;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +8,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
@@ -16,45 +20,37 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 @Component
-@FxmlView("/com/example/sales_department/directory/departament_directory.fxml")
-public class DepartamentDirectory {
+@FxmlView("/com/example/sales_department/directory/product_nomenclature.fxml")
+public class ProductNomenclature {
     @Autowired
     FxWeaver fxWeaver;
 
-    @FXML
-    private Button contractorsButton;
 
     @FXML
-    private Button exitButton;
+    private AnchorPane addProductInOrderAnchorPane;
 
     @FXML
-    private Button nomenclatureProductButton;
+    private Button backButton;
 
     @FXML
-    private Button specificationsButton;
+    private TableView<?> nomenclatureProductTableView;
 
     @FXML
-    void onContractorsButtonClick(ActionEvent event) {
-
-    }
+    private TableColumn<?, ?> productCipherTableColumn;
 
     @FXML
-    void onExitButtonClick(ActionEvent event) {
-
-    }
+    private TableColumn<?, ?> productNameTableColumn;
 
     @FXML
-    void onNomenclatureProductButtonClick(ActionEvent event) {
-        Parent root = fxWeaver.loadView(ProductNomenclature.class);
+    private TableColumn<?, ?> weightTableColumn;
+
+    @FXML
+    void onBackButtonClick(ActionEvent event) {
+        Parent root = fxWeaver.loadView(DepartamentDirectory.class);
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-
-    }
-
-    @FXML
-    void onSpecificationsButtonClick(ActionEvent event) {
 
     }
 
