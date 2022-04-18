@@ -51,6 +51,11 @@ public class Contractors {
     private TableColumn<?, ?> unnTableColumn;
 
     @FXML
+    public void initialize() {
+
+    }
+
+    @FXML
     void onAddContractorsButtonClick(ActionEvent event) {
         Parent root = fxWeaver.loadView(AddContractors.class);
         Scene scene = new Scene(root);

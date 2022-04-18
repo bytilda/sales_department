@@ -21,7 +21,6 @@ public class Contract {
     @Column(name = "conclusion_date", nullable = false)
     private LocalDate conclusionDate;
 
-    @Lob
     @Column(name = "contract_subject", nullable = false)
     private String contractSubject;
 
@@ -41,7 +40,6 @@ public class Contract {
     @OneToMany(mappedBy = "idContract")
     private Set<Specification> specifications = new LinkedHashSet<>();
 
-    @Lob
     @Column(name = "city", nullable = false)
     private String city;
 

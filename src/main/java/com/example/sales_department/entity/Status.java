@@ -12,7 +12,6 @@ public class Status {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Lob
     @Column(name = "status", nullable = false)
     private String status;
 

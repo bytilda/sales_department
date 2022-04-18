@@ -13,7 +13,6 @@ public class ProductNomenclature {
     @Column(name = "product_cipher", nullable = false)
     private Long productCipher;
 
-    @Lob
     @Column(name = "product_name", nullable = false)
     private String productName;
 

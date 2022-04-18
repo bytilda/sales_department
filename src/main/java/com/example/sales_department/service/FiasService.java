@@ -15,4 +15,8 @@ public class FiasService {
     public List<Fia> getAll(){
         return fiaRepository.findAll();
     }
+
+    public Fia getById(String address){
+        return fiaRepository.findById(address).orElse(null);
+    }
 }

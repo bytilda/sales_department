@@ -15,4 +15,8 @@ public class OkpoService {
     public List<Okpo> getAll(){
         return okpoRepository.findAll();
     }
+
+    public Okpo getById(Long id){
+        return okpoRepository.findById(id).orElse(null);
+    }
 }

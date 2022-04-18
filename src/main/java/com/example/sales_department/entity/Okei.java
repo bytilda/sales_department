@@ -6,7 +6,6 @@ import javax.persistence.*;
 @Table(name = "okei", schema = "sales_department_db")
 public class Okei {
     @Id
-    @Lob
     @Column(name = "units", nullable = false)
     private String id;
 

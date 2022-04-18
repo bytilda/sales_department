@@ -12,7 +12,6 @@ public class Customer {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Lob
     @Column(name = "organization_name", nullable = false)
     private String organizationName;
 

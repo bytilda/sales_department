@@ -22,8 +22,7 @@ public class Okpo {
 
     @Override
     public String toString(){
-        return
-                id.toString();
+        return id.toString();
     }
 
     //TODO Reverse Engineering! Migrate other columns to the entity
