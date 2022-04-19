@@ -28,7 +28,7 @@
       </TableView>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="850.0" prefWidth="307.0">
          <children>
-            <Button layoutX="61.0" layoutY="104.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" text="Добавление реализации">
+            <Button fx:id="addRealizationButton" layoutX="61.0" layoutY="104.0" mnemonicParsing="false" onAction="#onAddRealizationButtonClick" prefHeight="70.0" prefWidth="230.0" text="Добавление реализации">
                <font>
                   <Font size="15.0" />
                </font>

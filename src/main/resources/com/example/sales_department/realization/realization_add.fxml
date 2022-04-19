@@ -69,7 +69,7 @@
                <font>
                   <Font size="14.0" />
                </font></Button>
-              <Button fx:id="removeRealizeButton" layoutX="609.0" layoutY="648.0" mnemonicParsing="false" onAction="#onRemoveRealizeButtonClick" text="Отменить" />
+              <Button fx:id="removeRealizeButton" layoutX="713.0" layoutY="651.0" mnemonicParsing="false" onAction="#onRemoveRealizeButtonClick" text="Отменить" />
             <Label fx:id="dateReceiveLabel" layoutX="412.0" layoutY="607.0" text="Дата приёмки">
                <font>
                   <Font size="15.0" />

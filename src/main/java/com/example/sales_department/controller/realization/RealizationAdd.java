@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
@@ -120,7 +121,12 @@ public class RealizationAdd {
 
     @FXML
     void onAddProductInOrderButtonClick(ActionEvent event) {
-
+        Parent root = fxWeaver.loadView(RealizationChangeProduct.class);
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
