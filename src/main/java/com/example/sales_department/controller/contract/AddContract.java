@@ -32,6 +32,9 @@ public class AddContract {
     private Button addContractButton;
 
     @FXML
+    private Button addSpecificationButton;
+
+    @FXML
     private Button cancelButtonClick;
 
     @FXML
@@ -83,6 +86,11 @@ public class AddContract {
 
     @FXML
     void onCancelButtonClick(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onAddSpecificationButtonClick(ActionEvent event) {
 
     }
 

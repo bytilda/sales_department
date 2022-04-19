@@ -4,21 +4,27 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="418.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.contract.Specification">
+<AnchorPane prefHeight="567.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.contract.Specification">
    <children>
-      <TableView fx:id="specificationTableView" layoutX="28.0" layoutY="80.0" prefHeight="286.0" prefWidth="814.0">
+      <TableView fx:id="specificationTableView" layoutX="27.0" layoutY="170.0" prefHeight="286.0" prefWidth="814.0">
         <columns>
           <TableColumn fx:id="numberTableColumn" prefWidth="31.0" text="№" />
           <TableColumn fx:id="numberContractTableColumn" prefWidth="198.0" text="Номер договора" />
-            <TableColumn fx:id="unitMeasureTableColumn" prefWidth="115.0" text="Ед. изм." />
-            <TableColumn fx:id="amountTableColumn" prefWidth="170.0" text="Количество" />
-            <TableColumn fx:id="dataTableColumn" prefWidth="134.0" text="Дата доставки" />
-            <TableColumn fx:id="adressTableColumn" prefWidth="163.0" text="Адрес грузополучателя" />
+            <TableColumn fx:id="unitMeasureTableColumn" prefWidth="182.0" text="Контрагент" />
+            <TableColumn fx:id="amountTableColumn" prefWidth="218.0" text="Дата заключения спецификации" />
+            <TableColumn fx:id="dataTableColumn" prefWidth="184.0" text="Номер приложения" />
         </columns>
       </TableView>
-      <Text fx:id="specificationText" layoutX="38.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Спецификации" />
-      <Button fx:id="addSpecificationButton" layoutX="28.0" layoutY="379.0" mnemonicParsing="false" onAction="#onAddSpecificationButtonClick" prefHeight="25.0" prefWidth="105.0" text="добавить" />
+      <Text fx:id="specificationText" layoutX="347.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Спецификации">
+         <font>
+            <Font size="25.0" />
+         </font></Text>
+      <Button fx:id="addSpecificationButton" layoutX="27.0" layoutY="469.0" mnemonicParsing="false" onAction="#onAddSpecificationButtonClick" prefHeight="25.0" prefWidth="105.0" text="Добавить">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
    </children>
 </AnchorPane>

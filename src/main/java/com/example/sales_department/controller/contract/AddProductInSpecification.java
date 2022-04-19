@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.text.Text;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
@@ -16,42 +16,52 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@FxmlView("/com/example/sales_department/contract/Specification.fxml")
-public class Specification {
+@FxmlView("/com/example/sales_department/contract/add_product_in_specification.fxml")
+public class AddProductInSpecification {
     @Autowired
     FxWeaver fxWeaver;
 
     @FXML
-    private Button addSpecificationButton;
+    private AnchorPane addProductInOrderAnchorPane;
 
     @FXML
-    private TableColumn<?, ?> amountTableColumn;
+    private Button addProductInOrderButton;
 
     @FXML
-    private TableColumn<?, ?> dataTableColumn;
+    private Button cancelButton;
 
     @FXML
-    private TableColumn<?, ?> numberContractTableColumn;
+    private Button deleteProductFromOrderButton;
 
     @FXML
-    private TableColumn<?, ?> numberTableColumn;
+    private TableView<?> nomenclatureProductTableView;
 
     @FXML
-    private TableView<?> specificationTableView;
+    private TableColumn<?, ?> productCipherTableColumn;
 
     @FXML
-    private Text specificationText;
+    private TableColumn<?, ?> productNameTableColumn;
 
     @FXML
-    private TableColumn<?, ?> unitMeasureTableColumn;
+    private TableColumn<?, ?> weightTableColumn;
 
     @FXML
-    void onAddSpecificationButtonClick(ActionEvent event) {
+    void onAddProductInOrderButtonClick(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onCancelButtonClick(ActionEvent event) {
         Parent root = fxWeaver.loadView(AddSpecification.class);
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+
+    }
+
+    @FXML
+    void onDeleteProductFromOrderButtonClick(ActionEvent event) {
 
     }
 
