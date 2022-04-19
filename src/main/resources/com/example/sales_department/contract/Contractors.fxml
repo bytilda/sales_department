@@ -20,7 +20,7 @@
             <TableColumn fx:id="kppTableColumn" prefWidth="32.0" text="КПП" />
             <TableColumn fx:id="estimatedTableColumn" prefWidth="111.0" text="Расчётный счёт" />
             <TableColumn fx:id="correspondentTableColumn" prefWidth="167.0" text="Корреспондетский счёт" />
-            <TableColumn fx:id="labelAddressTableColumn1" prefWidth="157.0" text="Юридический адрес" />
+            <TableColumn fx:id="labelAddressTableColumn" prefWidth="157.0" text="Юридический адрес" />
         </columns>
       </TableView>
       <Button fx:id="exitButton" layoutX="46.0" layoutY="360.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="88.0" prefWidth="211.0" text="Выход">
