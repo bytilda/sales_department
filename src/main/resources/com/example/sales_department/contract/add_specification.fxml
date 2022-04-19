@@ -2,49 +2,63 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="392.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.contract.AddSpecification">
+<AnchorPane prefHeight="613.0" prefWidth="674.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.contract.AddSpecification">
    <children>
-      <TextField fx:id="contractNumberTextField" layoutX="77.0" layoutY="116.0" />
-      <TextField fx:id="unitsTextField" layoutX="77.0" layoutY="171.0" />
-      <TextField fx:id="amountTextField" layoutX="77.0" layoutY="230.0" />
-      <Text layoutX="77.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер договора">
-         <font>
-            <Font size="15.0" />
-         </font></Text>
-      <Text layoutX="75.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ед. изм.">
-         <font>
-            <Font size="15.0" />
-         </font></Text>
-      <Text layoutX="77.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Количество">
-         <font>
-            <Font size="15.0" />
-         </font></Text>
-      <Text layoutX="342.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата доставки">
-         <font>
-            <Font size="15.0" />
-         </font></Text>
-      <Text layoutX="342.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Адрес грузополучателя">
-         <font>
-            <Font size="15.0" />
-         </font></Text>
-      <DatePicker fx:id="deliveryDateDatePicker" layoutX="342.0" layoutY="116.0" />
-      <TextField fx:id="consigneeAddressTextField" layoutX="342.0" layoutY="171.0" prefHeight="25.0" prefWidth="174.0" />
-      <Button fx:id="addSpecificationButton" layoutX="75.0" layoutY="288.0" mnemonicParsing="false" onAction="#onAddSpecificationButtonClick" text="Добавить">
+      <Button fx:id="addSpecificationButton" layoutX="25.0" layoutY="513.0" mnemonicParsing="false" onAction="#onAddSpecificationButtonClick" text="Добавить">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="cancelButton" layoutX="458.0" layoutY="288.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Отмена">
+      <Button fx:id="cancelButton" layoutX="565.0" layoutY="513.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Отмена">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Text layoutX="131.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добавить спецификацию">
+      <Text layoutX="168.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добавить спецификацию">
          <font>
             <Font size="29.0" />
          </font></Text>
+      <TableView layoutX="25.0" layoutY="207.0" prefHeight="288.0" prefWidth="613.0">
+        <columns>
+          <TableColumn prefWidth="146.0" text="Наименование товара" />
+          <TableColumn prefWidth="87.0" text="Цена товара" />
+            <TableColumn prefWidth="189.0" text="Единицы измерения" />
+            <TableColumn prefWidth="85.0" text="Количество" />
+            <TableColumn prefWidth="105.0" text="Стоимость" />
+        </columns>
+      </TableView>
+      <Button fx:id="addProductIlSpecification" layoutX="25.0" layoutY="176.0" mnemonicParsing="false" onAction="#onAddProductInSpecificationClick" text="Добавить товар в спецификацию">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label fx:id="labelContractors" layoutX="92.0" layoutY="59.0" text="Имя контрагента">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="contractNumberLabel" layoutX="347.0" layoutY="59.0" text="Номер договора">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="92.0" layoutY="108.0" text="Дата заключения">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="347.0" layoutY="108.0" text="Номер приложения">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <DatePicker layoutX="85.0" layoutY="125.0" />
+      <TextField fx:id="numberAppTextField" layoutX="347.0" layoutY="125.0" onAction="#onNumberAppTextField" />
    </children>
 </AnchorPane>

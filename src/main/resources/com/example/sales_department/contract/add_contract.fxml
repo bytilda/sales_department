@@ -53,7 +53,7 @@
          <font>
             <Font size="15.0" />
          </font></Text>
-      <TableView fx:id="numberAppTableView" layoutX="293.0" layoutY="315.0" prefHeight="200.0" prefWidth="578.0">
+      <TableView fx:id="numberAppTableView" layoutX="289.0" layoutY="323.0" prefHeight="200.0" prefWidth="578.0">
         <columns>
           <TableColumn fx:id="numberAppTableColumn" prefWidth="576.0" text="Номер приложения" />
         </columns>
@@ -78,5 +78,10 @@
       <Button fx:id="exitButton" layoutX="59.0" layoutY="452.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="71.0" prefWidth="186.0" text="Выход" />
       <Button fx:id="createContractButton" disable="true" layoutX="61.0" layoutY="99.0" mnemonicParsing="false" onAction="#onCreateContractButtonClick" prefHeight="71.0" prefWidth="183.0" text="Добавить договор" />
       <TextField fx:id="contractNumberTextField" layoutX="302.0" layoutY="122.0" />
+      <Button fx:id="addSpecificationButton" layoutX="301.0" layoutY="285.0" mnemonicParsing="false" onAction="#onAddSpecificationButtonClick" text="Добавить новую спецификацию">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

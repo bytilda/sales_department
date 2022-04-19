@@ -7,8 +7,6 @@ import com.example.sales_department.service.CustomerService;
 import com.example.sales_department.service.FiasService;
 import com.example.sales_department.service.OkpoService;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -27,7 +25,6 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.swing.event.ChangeEvent;
 import java.util.stream.Collectors;
 
 @Component

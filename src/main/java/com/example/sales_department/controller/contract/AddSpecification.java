@@ -6,7 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
@@ -21,25 +21,32 @@ public class AddSpecification {
     FxWeaver fxWeaver;
 
     @FXML
-    private Button addSpecificationButton;
+    private Button addProductIlSpecification;
 
     @FXML
-    private TextField amountTextField;
+    private Button addSpecificationButton;
 
     @FXML
     private Button cancelButton;
 
     @FXML
-    private TextField consigneeAddressTextField;
+    private Label contractNumberLabel;
 
     @FXML
-    private TextField contractNumberTextField;
+    private Label labelContractors;
 
     @FXML
-    private DatePicker deliveryDateDatePicker;
+    private TextField numberAppTextField;
 
     @FXML
-    private TextField unitsTextField;
+    void onAddProductInSpecificationClick(ActionEvent event) {
+        Parent root = fxWeaver.loadView(AddProductInSpecification.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }
 
     @FXML
     void onAddSpecificationButtonClick(ActionEvent event) {
@@ -48,6 +55,7 @@ public class AddSpecification {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+
     }
 
     @FXML
@@ -57,6 +65,12 @@ public class AddSpecification {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+
+    }
+
+    @FXML
+    void onNumberAppTextField(ActionEvent event) {
+
     }
 
 }

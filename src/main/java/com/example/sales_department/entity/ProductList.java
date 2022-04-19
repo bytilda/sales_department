@@ -4,9 +4,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "product_list", schema = "sales_department_db", indexes = {
-        @Index(name = "ix_relationship93", columnList = "units")
-})
+@Table(name = "product_list", schema = "sales_department_db")
 public class ProductList {
     @EmbeddedId
     private ProductListId id;
@@ -24,16 +22,15 @@ public class ProductList {
     @Column(name = "price", nullable = false, precision = 20, scale = 2)
     private BigDecimal price;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "units", nullable = false)
-    private Okei units;
+    @Column(name = "amount")
+    private Long amount;
 
-    public Okei getUnits() {
-        return units;
+    public Long getAmount() {
+        return amount;
     }
 
-    public void setUnits(Okei units) {
-        this.units = units;
+    public void setAmount(Long amount) {
+        this.amount = amount;
     }
 
     public BigDecimal getPrice() {

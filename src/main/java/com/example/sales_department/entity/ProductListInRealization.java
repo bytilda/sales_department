@@ -3,9 +3,7 @@ package com.example.sales_department.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "product_list_in_realization", schema = "sales_department_db", indexes = {
-        @Index(name = "ix_relationship84", columnList = "units")
-})
+@Table(name = "product_list_in_realization", schema = "sales_department_db")
 public class ProductListInRealization {
     @EmbeddedId
     private ProductListInRealizationId id;
@@ -22,18 +20,6 @@ public class ProductListInRealization {
 
     @Column(name = "amount", nullable = false)
     private Long amount;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "units", nullable = false)
-    private Okei units;
-
-    public Okei getUnits() {
-        return units;
-    }
-
-    public void setUnits(Okei units) {
-        this.units = units;
-    }
 
     public Long getAmount() {
         return amount;
