@@ -19,6 +19,18 @@ public class ProductNomenclature {
     @Column(name = "weight")
     private Long weight;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "units")
+    private Okei units;
+
+    public Okei getUnits() {
+        return units;
+    }
+
+    public void setUnits(Okei units) {
+        this.units = units;
+    }
+
     public Long getWeight() {
         return weight;
     }

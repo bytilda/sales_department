@@ -20,18 +20,6 @@ public class ProductListInOrder {
     @Column(name = "amount", nullable = false)
     private Long amount;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "units", nullable = false)
-    private Okei units;
-
-    public Okei getUnits() {
-        return units;
-    }
-
-    public void setUnits(Okei units) {
-        this.units = units;
-    }
-
     public Long getAmount() {
         return amount;
     }

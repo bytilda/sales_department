@@ -43,6 +43,18 @@ public class Contract {
     @Column(name = "city", nullable = false)
     private String city;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "consignee_address")
+    private Fia consigneeAddress;
+
+    public Fia getConsigneeAddress() {
+        return consigneeAddress;
+    }
+
+    public void setConsigneeAddress(Fia consigneeAddress) {
+        this.consigneeAddress = consigneeAddress;
+    }
+
     public String getCity() {
         return city;
     }

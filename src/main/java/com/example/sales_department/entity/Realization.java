@@ -3,6 +3,7 @@ package com.example.sales_department.entity;
 import javax.persistence.*;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -21,7 +22,7 @@ public class Realization {
     private Boolean paymentStatus = false;
 
     @Column(name = "facted_time_of_shipment")
-    private Instant factedTimeOfShipment;
+    private Date factedTimeOfShipment;
 
     @Column(name = "upd_number", nullable = false)
     private Long updNumber;
@@ -79,11 +80,11 @@ public class Realization {
         this.updNumber = updNumber;
     }
 
-    public Instant getFactedTimeOfShipment() {
+    public Date getFactedTimeOfShipment() {
         return factedTimeOfShipment;
     }
 
-    public void setFactedTimeOfShipment(Instant factedTimeOfShipment) {
+    public void setFactedTimeOfShipment(Date factedTimeOfShipment) {
         this.factedTimeOfShipment = factedTimeOfShipment;
     }
 
