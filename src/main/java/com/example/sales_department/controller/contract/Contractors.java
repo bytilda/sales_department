@@ -28,6 +28,8 @@ public class Contractors {
     FxWeaver fxWeaver;
     @Autowired
     CustomerService customerService;
+    @Autowired
+    EditContractors editContractors;
 
     @FXML
     private Button addContractorButton;
@@ -61,6 +63,16 @@ public class Contractors {
 
     @FXML
     public void initialize() {
+        editContractorButton.setDisable(true);
+        contractorsTableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                editContractorButton.setDisable(false);
+            }
+            else {
+                editContractorButton.setDisable(true);
+            }
+        });
+
         ObservableList<Customer> list = FXCollections.observableArrayList(customerService
                 .getAll());
 
@@ -85,6 +97,7 @@ public class Contractors {
 
     @FXML
     void onEditContractorButtonClick(ActionEvent event) {
+        editContractors.setCustomer(contractorsTableView.getSelectionModel().getSelectedItem());
         Parent root = fxWeaver.loadView(EditContractors.class);
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();

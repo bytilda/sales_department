@@ -1,10 +1,12 @@
 package com.example.sales_department.service;
 
 import com.example.sales_department.entity.Customer;
+import com.example.sales_department.entity.Okpo;
 import com.example.sales_department.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Service
@@ -18,6 +20,10 @@ public class CustomerService {
 
     public List<Customer> getAll(){
         return customerRepository.findAll();
+    }
+
+    public Customer getByInn(BigInteger inn){
+        return customerRepository.findCustomerByInn(inn);
     }
 }
 
