@@ -1,5 +1,12 @@
 package com.example.sales_department.controller.contract;
 
+import com.example.sales_department.entity.Contract;
+import com.example.sales_department.entity.Customer;
+import com.example.sales_department.service.ContractService;
+import com.example.sales_department.service.CustomerService;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -15,32 +22,37 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 @FxmlView("/com/example/sales_department/contract/view_contract.fxml")
 public class ViewContract {
     @Autowired
     FxWeaver fxWeaver;
+    @Autowired
+    ContractService contractService;
+
 
     @FXML
-    private TableColumn<?, ?> ContractorTableColumn;
+    private TableColumn<Contract, String> ContractorTableColumn;
 
     @FXML
     private Button addContractButton;
 
     @FXML
-    private TableColumn<?, ?> adressTableColumn;
+    private TableColumn<Contract, String> adressTableColumn;
 
     @FXML
-    private TableColumn<?, ?> cityTableColumn;
+    private TableColumn<Contract, String> cityTableColumn;
 
     @FXML
-    private TableColumn<?, ?> dataConclusionTableColumn;
+    private TableColumn<Contract, String> dataConclusionTableColumn;
 
     @FXML
-    private TableColumn<?, ?> dataEndTableColumn;
+    private TableColumn<Contract, String> dataEndTableColumn;
 
     @FXML
-    private TableColumn<?, ?> dataStartTableColumn;
+    private TableColumn<Contract, String> dataStartTableColumn;
 
     @FXML
     private Button editContractButton;
@@ -49,16 +61,41 @@ public class ViewContract {
     private Button exitButton;
 
     @FXML
-    private TableColumn<?, ?> numberSpecificationTableColumn;
+    private TableColumn<Contract, String> numberContractTableColumn;
 
     @FXML
-    private TableColumn<?, ?> statusTableColumn;
+    private TableColumn<Contract, String> statusTableColumn;
 
     @FXML
-    private TableView<?> viewContractTableView;
+    private TableView<Contract> viewContractTableView;
 
     @FXML
     private Text viewContractText;
+
+    @FXML
+    public void initialize() {
+
+        ObservableList<Contract> list = FXCollections.observableArrayList(contractService
+                .getAll());
+
+        statusTableColumn.setCellValueFactory(cd -> {
+            LocalDate now = LocalDate.now();
+            if(cd.getValue().getValidUntil().isAfter(now))
+                return new SimpleStringProperty("Действителен");
+            else
+                return new SimpleStringProperty("Не действителен") ;
+
+        });
+        numberContractTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getContractNumber().toString()));
+        dataStartTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getValidFrom().toString()));
+        dataEndTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getValidUntil().toString()));
+        dataConclusionTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getConclusionDate().toString()));
+        cityTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getCity()));
+        adressTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getConsigneeAddress().getId()));
+        ContractorTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getIdCustomer().getOrganizationName()));
+
+        viewContractTableView.setItems(list);
+    }
 
     @FXML
     void onAddContractButtonClick(ActionEvent event) {

@@ -24,7 +24,7 @@ public class Contract {
     @Column(name = "contract_subject", nullable = false)
     private String contractSubject;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "id_customer", nullable = false)
     private Customer idCustomer;
 

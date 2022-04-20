@@ -10,14 +10,14 @@
    <children>
       <TableView fx:id="viewContractTableView" layoutX="265.0" layoutY="115.0" prefHeight="368.0" prefWidth="997.0">
         <columns>
-            <TableColumn fx:id="statusTableColumn" prefWidth="54.0" text="Статус договора" />
-          <TableColumn fx:id="numberSpecificationTableColumn" prefWidth="131.0" text="Номер приложения" />
-          <TableColumn fx:id="dataConclusionTableColumn" prefWidth="118.0" text="Дата заключения" />
-            <TableColumn fx:id="dataStartTableColumn" prefWidth="118.0" text="Дата вступления договора в силу" />
-            <TableColumn fx:id="dataEndTableColumn" prefWidth="121.0" text="Договор действителен до" />
-            <TableColumn fx:id="ContractorTableColumn" prefWidth="208.0" text="Контрагент" />
-            <TableColumn fx:id="cityTableColumn" prefWidth="90.0" text="Город заключения договора" />
-            <TableColumn fx:id="adressTableColumn" prefWidth="156.0" text="Адрес грузополучателя" />
+            <TableColumn fx:id="statusTableColumn" prefWidth="132.0" text="Статус договора" />
+          <TableColumn fx:id="numberContractTableColumn" prefWidth="96.0" text="Номер договора" />
+          <TableColumn fx:id="dataConclusionTableColumn" prefWidth="105.0" text="Дата заключения" />
+            <TableColumn fx:id="dataStartTableColumn" prefWidth="200.0" text="Дата вступления договора в силу" />
+            <TableColumn fx:id="dataEndTableColumn" prefWidth="166.0" text="Договор действителен до" />
+            <TableColumn fx:id="ContractorTableColumn" prefWidth="77.0" text="Контрагент" />
+            <TableColumn fx:id="cityTableColumn" prefWidth="62.0" text="Город заключения договора" />
+            <TableColumn fx:id="adressTableColumn" prefWidth="158.0" text="Адрес грузополучателя" />
         </columns>
       </TableView>
       <Button fx:id="exitButton" layoutX="21.0" layoutY="406.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="77.0" prefWidth="194.0" text="Выход" />
