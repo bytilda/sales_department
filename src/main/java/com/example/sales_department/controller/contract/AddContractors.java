@@ -25,6 +25,7 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
 import java.util.stream.Collectors;
 
 @Component
@@ -163,7 +164,7 @@ public class AddContractors {
             errorText += "Поле ИНН не должно быть пустым. \n";
         }
         else{
-            customer.setInn(Long.parseLong(unnTextField.getText()));
+            customer.setInn(new BigInteger(unnTextField.getText()));
         }
 
         if(kppTextField.getText().isEmpty()){
@@ -171,7 +172,7 @@ public class AddContractors {
             errorText += "Поле КПП не должно быть пустым. \n";
         }
         else{
-            customer.setKpp(Long.parseLong(kppTextField.getText()));
+            customer.setKpp(new BigInteger(kppTextField.getText()));
         }
 
         if(correspondentTextField.getText().isEmpty()){
@@ -179,13 +180,13 @@ public class AddContractors {
             errorText += "Поле корреспондентского счета не должно быть пустым. \n";
         }
         else
-            customer.setCorrespondentAccount(Long.parseLong(correspondentTextField.getText()));
+            customer.setCorrespondentAccount(new BigInteger(correspondentTextField.getText()));
 
         if(estimatedTextField.getText().isEmpty()){
             isError = true;
             errorText += "Поле расчетного счета не должно быть пустым. \n";
         }
-        else customer.setCheckingAccount(Long.parseLong(estimatedTextField.getText()));
+        else customer.setCheckingAccount(new BigInteger(estimatedTextField.getText()));
 
         if(!isError) {
             customerService.add(customer);

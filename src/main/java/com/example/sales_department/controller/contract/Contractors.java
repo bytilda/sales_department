@@ -19,6 +19,8 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
+
 @Component
 @FxmlView("/com/example/sales_department/contract/Contractors.fxml")
 public class Contractors {
@@ -34,19 +36,19 @@ public class Contractors {
     private TableView<Customer> contractorsTableView;
 
     @FXML
-    private TableColumn<Customer, Long> correspondentTableColumn;
+    private TableColumn<Customer, String> correspondentTableColumn;
 
     @FXML
     private Button editContractorButton;
 
     @FXML
-    private TableColumn<Customer, Long> estimatedTableColumn;
+    private TableColumn<Customer, String> estimatedTableColumn;
 
     @FXML
     private Button exitButton;
 
     @FXML
-    private TableColumn<Customer, Long> kppTableColumn;
+    private TableColumn<Customer, String> kppTableColumn;
 
     @FXML
     private TableColumn<Customer, String> labelAddressTableColumn;
@@ -55,17 +57,17 @@ public class Contractors {
     private TableColumn<Customer, String> nameTableColumn;
 
     @FXML
-    private TableColumn<Customer, Long> unnTableColumn;
+    private TableColumn<Customer, String> unnTableColumn;
 
     @FXML
     public void initialize() {
         ObservableList<Customer> list = FXCollections.observableArrayList(customerService
                 .getAll());
 
-        unnTableColumn.setCellValueFactory(cd -> new SimpleLongProperty(cd.getValue().getInn()).asObject());
-        kppTableColumn.setCellValueFactory(cd -> new SimpleLongProperty(cd.getValue().getKpp()).asObject());
-        estimatedTableColumn.setCellValueFactory(cd -> new SimpleLongProperty(cd.getValue().getInn()).asObject());
-        correspondentTableColumn.setCellValueFactory(cd -> new SimpleLongProperty(cd.getValue().getCorrespondentAccount()).asObject());
+        unnTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getInn().toString()));
+        kppTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getKpp().toString()));
+        estimatedTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getInn().toString()));
+        correspondentTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getCorrespondentAccount().toString()));
         nameTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getOrganizationName()));
         labelAddressTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getLegalAddress().getId()));
 
