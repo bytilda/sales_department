@@ -15,7 +15,7 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="contractListButton" layoutX="250.0" layoutY="296.0" mnemonicParsing="false" onAction="#onContractListButtonClick" prefHeight="69.0" prefWidth="239.0" text="Реестр">
+      <Button fx:id="contractListButton" layoutX="250.0" layoutY="296.0" mnemonicParsing="false" onAction="#onContractListButtonClick" prefHeight="69.0" prefWidth="239.0" text="Реестр договоров">
          <font>
             <Font size="15.0" />
          </font></Button>
@@ -23,7 +23,7 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="specificationsButton" layoutX="250.0" layoutY="379.0" mnemonicParsing="false" onAction="#onSpecificationsButtonClick" prefHeight="75.0" prefWidth="239.0" text="Спецификации">
+      <Button fx:id="specificationsButton" layoutX="250.0" layoutY="379.0" mnemonicParsing="false" onAction="#onSpecificationsButtonClick" prefHeight="75.0" prefWidth="239.0" text="Реестр спецификаций">
          <font>
             <Font size="15.0" />
          </font></Button>
