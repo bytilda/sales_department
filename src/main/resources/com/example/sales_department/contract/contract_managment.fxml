@@ -26,9 +26,10 @@
           <TableColumn fx:id="contractNumberTableColumn" prefWidth="116.0" text="Номер договора" />
           <TableColumn fx:id="closingDateTableColumn" minWidth="0.0" prefWidth="120.0" text="Дата заключения" />
             <TableColumn fx:id="contractorTableColumn" prefWidth="110.0" text="Контрагент" />
-            <TableColumn fx:id="forceDateTableColumn" prefWidth="222.0" text="Дата вступления договора в силу" />
-            <TableColumn fx:id="validDateTableColumn" prefWidth="182.0" text="Договор действителен до" />
-            <TableColumn fx:id="closingCityTableColumn" prefWidth="182.0" text="Город заключения договора" />
+            <TableColumn fx:id="forceDateTableColumn" prefWidth="105.0" text="Дата вступления договора в силу" />
+            <TableColumn fx:id="validDateTableColumn" prefWidth="128.0" text="Договор действителен до" />
+            <TableColumn fx:id="closingCityTableColumn" prefWidth="209.0" text="Город заключения договора" />
+            <TableColumn fx:id="adressTableColumn" prefWidth="145.0" text="Адрес грузополучателя" />
         </columns>
       </TableView>
       <Button fx:id="addContractButton" layoutX="22.0" layoutY="144.0" mnemonicParsing="false" onAction="#onAddContractButtonClick" prefHeight="90.0" prefWidth="232.0" text="Добавить договор" />

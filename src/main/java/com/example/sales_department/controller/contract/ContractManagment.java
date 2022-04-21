@@ -1,5 +1,14 @@
 package com.example.sales_department.controller.contract;
 
+import com.example.sales_department.entity.Contract;
+import com.example.sales_department.entity.Customer;
+import com.example.sales_department.service.ContractService;
+import com.example.sales_department.service.CustomerService;
+import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -17,17 +26,26 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.stream.Collectors;
+
 @Component
 @FxmlView("/com/example/sales_department/contract/contract_managment.fxml")
 public class ContractManagment {
     @Autowired
     FxWeaver fxWeaver;
+    @Autowired
+    ContractService contractService;
+    @Autowired
+    CustomerService customerService;
 
     @FXML
     private Button addContractButton;
 
     @FXML
-    private TableColumn<?, ?> closingCityTableColumn;
+    private TableColumn<Contract, String> adressTableColumn;
+
+    @FXML
+    private TableColumn<Contract, String> closingCityTableColumn;
 
     @FXML
     private TextField closingCityTextField;
@@ -36,22 +54,22 @@ public class ContractManagment {
     private DatePicker closingDateDatePicker;
 
     @FXML
-    private TableColumn<?, ?> closingDateTableColumn;
+    private TableColumn<Contract, String> closingDateTableColumn;
 
     @FXML
     private Button contractListButton;
 
     @FXML
-    private TableColumn<?, ?> contractNumberTableColumn;
+    private TableColumn<Contract, String> contractNumberTableColumn;
 
     @FXML
     private TextField contractNumberTextField;
 
     @FXML
-    private ComboBox<?> contractorComboBox;
+    private ComboBox<String> contractorComboBox;
 
     @FXML
-    private TableColumn<?, ?> contractorTableColumn;
+    private TableColumn<Contract, String> contractorTableColumn;
 
     @FXML
     private Button editContractButton;
@@ -60,13 +78,13 @@ public class ContractManagment {
     private Button exitButton;
 
     @FXML
-    private TableView<?> findContractTableView;
+    private TableView<Contract> findContractTableView;
 
     @FXML
     private DatePicker forceDateDatePicker;
 
     @FXML
-    private TableColumn<?, ?> forceDateTableColumn;
+    private TableColumn<Contract, String> forceDateTableColumn;
 
     @FXML
     private Button searchContractButton;
@@ -75,7 +93,45 @@ public class ContractManagment {
     private DatePicker validDateDatePicker;
 
     @FXML
-    private TableColumn<?, ?> validDateTableColumn;
+    private TableColumn<Contract, String> validDateTableColumn;
+
+    @FXML
+    public void initialize() {
+
+        ObservableList<Contract> list = FXCollections.observableArrayList(contractService
+                .getAll());
+
+        validDateTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getValidUntil().toString()));
+        forceDateTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getValidFrom().toString()));
+        contractorTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getIdCustomer().getOrganizationName()));
+        contractNumberTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getContractNumber().toString()));
+        closingDateTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getConclusionDate().toString()));
+        closingCityTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getCity()));
+        adressTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getConsigneeAddress().getId()));
+
+        findContractTableView.setItems(list);
+
+        contractorComboBox.setEditable(true);
+        ObservableList<String> data = FXCollections.observableArrayList(
+                customerService.getAll().stream().map(customer -> customer.getInn().toString()).collect(Collectors.toList()));
+        FilteredList<String> filteredItems = new FilteredList<String>(data, p -> true);
+        contractorComboBox.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
+            final TextField editor = contractorComboBox.getEditor();
+            final String selected = contractorComboBox.getSelectionModel().getSelectedItem();
+            Platform.runLater(() -> {
+                if (selected == null || !selected.equals(editor.getText())) {
+                    filteredItems.setPredicate(item -> {
+                        if (item.toUpperCase().startsWith(newValue.toUpperCase())) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
+                }
+            });
+        });
+        contractorComboBox.setItems(filteredItems);
+    }
 
     @FXML
     void onAddContractButtonClick(ActionEvent event) {
