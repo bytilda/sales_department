@@ -1,6 +1,11 @@
 package com.example.sales_department.controller.order;
 
 import com.example.sales_department.controller.HelloController;
+import com.example.sales_department.entity.Order;
+import com.example.sales_department.service.ContractService;
+import com.example.sales_department.service.OrderService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -18,26 +23,38 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
+import java.time.LocalDate;
+import java.util.List;
+
 @Component
 @FxmlView("/com/example/sales_department/order/order_search.fxml")
 public class OrderSearch {
     @Autowired
     FxWeaver fxWeaver;
+    @Autowired
+    OrderService orderService;
 
     @FXML
     private Button addOrderButton;
 
     @FXML
-    private ComboBox<?> contractorComboBox;
+    private ComboBox<String> contractComboBox;
+
+    @FXML
+    private TableColumn<Order, String> contractNumberTableColumn;
+
+    @FXML
+    private ComboBox<String> contractorComboBox;
 
     @FXML
     private Label contractorLabel;
 
     @FXML
-    private TableColumn<?, ?> contractorTableColumn;
+    private TableColumn<Order, String> contractorTableColumn;
 
     @FXML
-    private TableColumn<?, ?> dateReceiveTableColumn;
+    private TableColumn<Order, String> dateReceiveTableColumn;
 
     @FXML
     private Button editOrderButton;
@@ -49,7 +66,7 @@ public class OrderSearch {
     private Label endShipmentLabel;
 
     @FXML
-    private TableColumn<?, ?> endShipmentTableColumn;
+    private TableColumn<Order, String> endShipmentTableColumn;
 
     @FXML
     private Button exitButton;
@@ -64,16 +81,16 @@ public class OrderSearch {
     private Label findOrderLabel;
 
     @FXML
-    private TableColumn<?, ?> numberOrderTableColumn;
+    private TableColumn<Order, String> numberOrderTableColumn;
 
     @FXML
     private Label orderLabel;
 
     @FXML
-    private TableView<?> orderTableView;
+    private TableView<Order> orderTableView;
 
     @FXML
-    private ComboBox<?> specificationComboBox;
+    private ComboBox<String> specificationComboBox;
 
     @FXML
     private Label specificationLabel;
@@ -85,7 +102,7 @@ public class OrderSearch {
     private Label startShipmentLabel;
 
     @FXML
-    private TableColumn<?, ?> startShipmentTableColumn;
+    private TableColumn<Order, String> startShipmentTableColumn;
 
     @FXML
     private Button viewOrderButton;
@@ -97,6 +114,11 @@ public class OrderSearch {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+
+    }
+
+    @FXML
+    void onContractComboBoxAction(ActionEvent event) {
 
     }
 
@@ -127,11 +149,43 @@ public class OrderSearch {
 
     @FXML
     void onFindButtonClick(ActionEvent event) {
-        Parent root = fxWeaver.loadView(OrderSearch.class);
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+//        Parent root = fxWeaver.loadView(OrderSearch.class);
+//        Scene scene = new Scene(root);
+//        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        stage.setScene(scene);
+//        stage.show();
+
+        BigInteger inn = null;
+        if ((contractorComboBox.getValue() != null) && (!contractorComboBox.getValue().isEmpty())){
+            inn = new BigInteger(contractorComboBox.getValue());
+        }
+
+        LocalDate startShipment = null;
+        if (startShipmentDatePicker.getValue() != null){
+            startShipment = startShipmentDatePicker.getValue();
+            startShipmentDatePicker.setValue(null);
+        }
+
+        LocalDate endShipment = null;
+        if (endShipmentDatePicker.getValue() != null){
+            endShipment = endShipmentDatePicker.getValue();
+            endShipmentDatePicker.setValue(null);
+        }
+
+        Long specification = null;
+        if ((specificationComboBox.getValue() != null) && (!specificationComboBox.getValue().isEmpty())){
+            specification = Long.parseLong(specificationComboBox.getValue());
+        }
+        Long contractNumber = null;
+        if ((contractComboBox.getValue() != null) && (!contractComboBox.getValue().isEmpty())){
+            contractNumber = Long.parseLong(contractComboBox.getValue());
+        }
+
+        List<Order> orders = orderService.findByAll(inn, specification, startShipment, endShipment, contractNumber);
+
+        ObservableList<Order> tableItems = FXCollections.observableArrayList(orders);
+        orderTableView.setItems(tableItems);
+        orderTableView.refresh();
 
     }
 

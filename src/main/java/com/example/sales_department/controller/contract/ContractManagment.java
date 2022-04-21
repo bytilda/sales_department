@@ -26,6 +26,9 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
@@ -176,7 +179,46 @@ public class ContractManagment {
 
     @FXML
     void onSearchContractButtonClick(ActionEvent event) {
+        Long contractNumber = null;
+        if (!contractNumberTextField.getText().isEmpty()){
+            contractNumber = Long.parseLong(contractNumberTextField.getText());
+        }
 
+        String city = null;
+        if ((closingCityTextField.getText() != null) && (!closingCityTextField.getText().isEmpty())){
+            city = closingCityTextField.getText();
+        }
+
+        LocalDate closingDate = null;
+        if (closingDateDatePicker.getValue() != null){
+            closingDate = closingDateDatePicker.getValue();
+            closingDateDatePicker.setValue(null);
+        }
+
+        LocalDate validFrom = null;
+        if (forceDateDatePicker.getValue() != null){
+            validFrom = forceDateDatePicker.getValue();
+            validDateDatePicker.setValue(null);
+        }
+
+        LocalDate validUntil = null;
+        if (validDateDatePicker.getValue() != null){
+            validUntil = validDateDatePicker.getValue();
+            validDateDatePicker.setValue(null);
+        }
+
+        BigInteger inn = null;
+
+        if ((contractorComboBox.getValue() != null) && (!contractorComboBox.getValue().isEmpty())){
+            inn = new BigInteger(contractorComboBox.getValue());
+        }
+
+
+        List<Contract> contracts = contractService.findByAll(contractNumber, closingDate, inn, validFrom, validUntil, city);
+
+        ObservableList<Contract> tableItems = FXCollections.observableArrayList(contracts);
+        findContractTableView.setItems(tableItems);
+        findContractTableView.refresh();
     }
 
 }
