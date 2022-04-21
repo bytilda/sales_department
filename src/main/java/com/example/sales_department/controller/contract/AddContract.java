@@ -6,6 +6,7 @@ import com.example.sales_department.entity.Fia;
 import com.example.sales_department.entity.Okpo;
 import com.example.sales_department.service.ContractService;
 import com.example.sales_department.service.CustomerService;
+import com.example.sales_department.service.FiasService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,6 +24,9 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.RollbackException;
+import javax.transaction.Transactional;
+import java.beans.Transient;
 import java.math.BigInteger;
 import java.util.stream.Collectors;
 
@@ -35,6 +39,11 @@ public class AddContract {
     ContractService contractService;
     @Autowired
     CustomerService customerService;
+    @Autowired
+    FiasService fiasService;
+
+    @Autowired
+    AddSpecification addSpecification;
 
     @FXML
     private AnchorPane addContractAnchorPane;
@@ -43,16 +52,10 @@ public class AddContract {
     private Button addContractButton;
 
     @FXML
-    private Button addSpecificationButton;
-
-    @FXML
     private Button cancelButtonClick;
 
     @FXML
     private TextField cityContractTextField;
-
-    @FXML
-    private TextField consigneeAddress;
 
     @FXML
     private TextArea contractContentTextArea;
@@ -65,6 +68,9 @@ public class AddContract {
 
     @FXML
     private ComboBox<String> contractorsComboBox;
+
+    @FXML
+    private ComboBox<String> addressCombobox;
 
     @FXML
     private Button createContractButton;
@@ -82,13 +88,10 @@ public class AddContract {
     private Button findContractButton;
 
     @FXML
-    private TableColumn<?, ?> numberAppTableColumn;
-
-    @FXML
-    private TableView<?> numberAppTableView;
-
-    @FXML
     private DatePicker validDateDatePicker;
+
+    @FXML
+    private Label organizationNameLabel;
 
     @FXML
     public void initialize(){
@@ -125,10 +128,32 @@ public class AddContract {
             }
         });
 
+        addressCombobox.setEditable(true);
+        ObservableList<String> addressData = FXCollections.observableArrayList(
+                fiasService.getAll().stream().map(Object::toString).collect(Collectors.toList()));
+        FilteredList<String> addressFilteredItems = new FilteredList<String>(addressData, p -> true);
+        addressCombobox.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
+            final TextField editor = addressCombobox.getEditor();
+            final String selected = addressCombobox.getSelectionModel().getSelectedItem();
+            Platform.runLater(() -> {
+                if (selected == null || !selected.equals(editor.getText())) {
+                    filteredItems.setPredicate(item -> {
+                        if (item.toUpperCase().startsWith(newValue.toUpperCase())) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
+                }
+            });
+        });
+        addressCombobox.setItems(addressFilteredItems);
+
 
     }
 
     @FXML
+    @Transactional(rollbackOn = {RollbackException.class})
     void onAddContractButtonClick(ActionEvent event) {
         boolean isError = false;
         String errorText = "";
@@ -192,9 +217,23 @@ public class AddContract {
             contract.setContractSubject(contractContentTextArea.getText());
         }
 
+        if(addressCombobox.getValue() == null){
+            isError = true;
+            errorText += "Поле юридического адреса организации не должно быть пустым. \n";
+        }
+        else{
+            Fia address = fiasService.getById(addressCombobox.getValue());
+            if(address == null){
+                isError = true;
+                errorText += "Указанного адреса нет в классификаторе ФИАС. \n";
+            }
+            contract.setConsigneeAddress(address);
+        }
+
         if(!isError) {
             contractService.add(contract);
-            Parent root = fxWeaver.loadView(ViewContract.class);
+            addSpecification.setContract(contract);
+            Parent root = fxWeaver.loadView(AddSpecification.class);
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -212,18 +251,11 @@ public class AddContract {
 
     @FXML
     void onCancelButtonClick(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onAddSpecificationButtonClick(ActionEvent event) {
-        Parent root = fxWeaver.loadView(AddSpecification.class);
+        Parent root = fxWeaver.loadView(MenuContract.class);
         Scene scene = new Scene(root);
-        //Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Stage stage = new Stage();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-
     }
 
     @FXML
@@ -237,7 +269,10 @@ public class AddContract {
 
     @FXML
     void onContractorsComboBoxClick(ActionEvent event) {
-
+        if(!contractorsComboBox.getValue().isEmpty()) {
+            Customer customer = customerService.getByInn(new BigInteger(contractorsComboBox.getValue()));
+            organizationNameLabel.setText(customer.getOrganizationName());
+        }
     }
 
     @FXML

@@ -1,6 +1,7 @@
 package com.example.sales_department.entity;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -19,7 +20,7 @@ public class Specification {
     private Long applicationNumber;
 
     @Column(name = "conclusion_date", nullable = false)
-    private Long conclusionDate;
+    private LocalDate conclusionDate;
 
     @Column(name = "is_terminated")
     private Boolean isTerminated;
@@ -54,11 +55,11 @@ public class Specification {
         this.isTerminated = isTerminated;
     }
 
-    public Long getConclusionDate() {
+    public LocalDate getConclusionDate() {
         return conclusionDate;
     }
 
-    public void setConclusionDate(Long conclusionDate) {
+    public void setConclusionDate(LocalDate conclusionDate) {
         this.conclusionDate = conclusionDate;
     }
 

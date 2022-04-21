@@ -14,7 +14,7 @@ public class ContractService {
     ContractRepository contractRepository;
 
     public void add(Contract contract){
-        contractRepository.saveAndFlush(contract);
+        contractRepository.save(contract);
     }
 
     public List<Contract> getAll(){

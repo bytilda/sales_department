@@ -1,10 +1,17 @@
 package com.example.sales_department.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
+@Builder
 @Table(name = "product_list", schema = "sales_department_db")
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductList {
     @EmbeddedId
     private ProductListId id;

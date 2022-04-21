@@ -1,5 +1,7 @@
 package com.example.sales_department.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.hibernate.Hibernate;
 
 import javax.persistence.Column;
@@ -9,6 +11,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProductListId implements Serializable {
     private static final long serialVersionUID = 8210522856099140663L;
     @Column(name = "id_specification", nullable = false)
