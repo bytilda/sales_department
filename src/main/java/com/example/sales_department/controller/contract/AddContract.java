@@ -23,9 +23,9 @@ import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.transaction.RollbackException;
-import javax.transaction.Transactional;
 import java.beans.Transient;
 import java.math.BigInteger;
 import java.util.stream.Collectors;
@@ -153,7 +153,7 @@ public class AddContract {
     }
 
     @FXML
-    @Transactional(rollbackOn = {RollbackException.class})
+    @Transactional()
     void onAddContractButtonClick(ActionEvent event) {
         boolean isError = false;
         String errorText = "";

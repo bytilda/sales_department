@@ -3,7 +3,6 @@ package com.example.sales_department.controller.contract;
 import com.example.sales_department.controller.HelloController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,8 +12,6 @@ import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.io.IOException;
 
 @Component
 @FxmlView("/com/example/sales_department/contract/menu_contract.fxml")
@@ -87,7 +84,7 @@ public class MenuContract {
 
     @FXML
     void onSpecificationsButtonClick(ActionEvent event) {
-        Parent root = fxWeaver.loadView(Specification.class);
+        Parent root = fxWeaver.loadView(SpecificationView.class);
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);

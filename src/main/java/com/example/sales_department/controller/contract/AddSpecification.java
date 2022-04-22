@@ -23,7 +23,7 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.RollbackException;
+import javax.persistence.RollbackException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.HashMap;
