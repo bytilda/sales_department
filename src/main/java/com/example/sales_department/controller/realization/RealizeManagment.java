@@ -76,28 +76,28 @@ public class RealizeManagment {
     private TableView<Realization> viewRealizeTableView;
 
     @FXML
-    private TableColumn<?, ?> numberUPDTableColumn1;
+    private TableColumn<Realization, String> numberUPDTableColumn1;
 
     @FXML
-    private TableColumn<?, ?> dateTableColumn;
+    private TableColumn<Realization, String> dateTableColumn;
 
     @FXML
-    private TableColumn<?, ?> contractorTableColumn1;
+    private TableColumn<Realization, String> contractorTableColumn1;
 
     @FXML
-    private TableColumn<?, ?> statusTableColumn1;
+    private TableColumn<Realization, String> statusTableColumn1;
 
     @FXML
-    private TableColumn<?, ?> adressTableColumn1;
+    private TableColumn<Realization, String> adressTableColumn1;
 
     @FXML
-    private TableColumn<?, ?> timeShipmentTableColumn1;
+    private TableColumn<Realization, String> timeShipmentTableColumn1;
 
     @FXML
-    private TableColumn<?, ?> dateReceiveTableColumn1;
+    private TableColumn<Realization, String> dateReceiveTableColumn1;
 
     @FXML
-    private TableColumn<?, ?> priceTableColumn;
+    private TableColumn<Realization, String> priceTableColumn;
 
     @FXML
     private Button addRealizationButton;
