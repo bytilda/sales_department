@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="519.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.contract.ProductListOfSpecification">
+   <children>
+      <TableView fx:id="ProductListOfSpecificationYableView" layoutX="63.0" layoutY="60.0" prefHeight="376.0" prefWidth="890.0">
+        <columns>
+          <TableColumn fx:id="productNameTC" prefWidth="188.0" text="Наименование товара" />
+          <TableColumn fx:id="costTC" prefWidth="153.0" text="Цена товара" />
+            <TableColumn fx:id="unitTC" prefWidth="165.0" text="Единицы измерения" />
+            <TableColumn fx:id="amountTC" prefWidth="174.0" text="Количество" />
+            <TableColumn fx:id="totalTC" prefWidth="209.0" text="Стоимость" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

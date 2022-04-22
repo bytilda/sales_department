@@ -28,9 +28,14 @@ public class SpecificationView {
     FxWeaver fxWeaver;
     @Autowired
     SpecificationService specificationService;
+    @Autowired
+    ProductListOfSpecification productListOfSpecification;
 
     @FXML
     private TableColumn<Specification, String> contractorTableColumn;
+
+    @FXML
+    private Button productListOfSpecificationButton;
 
     @FXML
     private TableColumn<Specification, String> dateConclusionTableColumn;
@@ -52,6 +57,16 @@ public class SpecificationView {
 
     @FXML
     public void initialize(){
+        productListOfSpecificationButton.setDisable(true);
+        specificationTableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                productListOfSpecificationButton.setDisable(false);
+            }
+            else {
+                productListOfSpecificationButton.setDisable(true);
+            }
+        });
+
         ObservableList<Specification> list = FXCollections.observableArrayList(specificationService.getAll());
         //Integer i = 1;
 
@@ -62,6 +77,18 @@ public class SpecificationView {
         dateConclusionTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getConclusionDate().toString()));
 
         specificationTableView.setItems(list);
+    }
+
+    @FXML
+    void onProductListOfSpecificationButtonClick(ActionEvent event) {
+
+        productListOfSpecification.setSpecification(specificationTableView.getSelectionModel().getSelectedItem());
+        Parent root = fxWeaver.loadView(ProductListOfSpecification.class);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
     }
 
 

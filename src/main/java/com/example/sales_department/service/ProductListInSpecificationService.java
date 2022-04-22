@@ -5,6 +5,8 @@ import com.example.sales_department.repository.ProductListInSpecificationReposit
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductListInSpecificationService {
     @Autowired
@@ -12,5 +14,9 @@ public class ProductListInSpecificationService {
 
     public void add(ProductList productList){
         productListInSpecificationRepository.saveAndFlush(productList);
+    }
+
+    public List<ProductList> getALLBySpecificationId(Long specificationId){
+        return productListInSpecificationRepository.findAllById_IdSpecification(specificationId);
     }
 }
