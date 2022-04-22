@@ -1,6 +1,10 @@
 package com.example.sales_department.controller.realization;
 
 import com.example.sales_department.controller.HelloController;
+import com.example.sales_department.entity.Realization;
+import com.example.sales_department.service.RealizationService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -20,11 +24,17 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
+import java.time.LocalDate;
+import java.util.List;
+
 @Component
 @FxmlView("/com/example/sales_department/realization/realize_managment.fxml")
 public class RealizeManagment {
     @Autowired
     FxWeaver fxWeaver;
+    @Autowired
+    RealizationService realizationService;
 
     @FXML
     private Text findRealizeText;
@@ -51,10 +61,10 @@ public class RealizeManagment {
     private Text dateText;
 
     @FXML
-    private ComboBox<?> statusComboBox;
+    private ComboBox<String> statusComboBox;
 
     @FXML
-    private ComboBox<?> contractorComboBox;
+    private ComboBox<String> contractorComboBox;
 
     @FXML
     private Text contractorText;
@@ -63,7 +73,7 @@ public class RealizeManagment {
     private Button findButton;
 
     @FXML
-    private TableView<?> viewRealizeTableView;
+    private TableView<Realization> viewRealizeTableView;
 
     @FXML
     private TableColumn<?, ?> numberUPDTableColumn1;
@@ -138,6 +148,33 @@ public class RealizeManagment {
 
     @FXML
     void onFindButtonClick(ActionEvent event) {
+
+        String status = null;
+        if ((!statusComboBox.getValue().isEmpty()) && (statusComboBox.getValue() != null)){
+            status = statusComboBox.getValue();
+        }
+
+        LocalDate date = null;
+        if (DateDatePicker.getValue() != null){
+            date = DateDatePicker.getValue();
+            DateDatePicker.setValue(null);
+        }
+
+        Long numberUPD = null;
+        if ((!numberUPDTextField.getText().isEmpty()) && (numberUPDTextField.getText() != null)){
+            numberUPD = Long.parseLong(numberUPDTextField.getText());
+        }
+
+        BigInteger inn = null;
+        if ((!contractorComboBox.getValue().isEmpty()) && (contractorComboBox.getValue() != null)){
+            inn = new BigInteger(contractorComboBox.getValue());
+        }
+
+        List<Realization> realizations = realizationService.findByAll(status, date, numberUPD, inn);
+
+        ObservableList<Realization> tableItems = FXCollections.observableArrayList(realizations);
+        viewRealizeTableView.setItems(tableItems);
+        viewRealizeTableView.refresh();
 
     }
 
