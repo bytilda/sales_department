@@ -40,6 +40,8 @@ public class ContractManagment {
     ContractService contractService;
     @Autowired
     CustomerService customerService;
+    @Autowired
+    EditContract editContract;
 
     @FXML
     private Button addContractButton;
@@ -101,6 +103,16 @@ public class ContractManagment {
     @FXML
     public void initialize() {
 
+        editContractButton.setDisable(true);
+        findContractTableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                editContractButton.setDisable(false);
+            }
+            else {
+                editContractButton.setDisable(true);
+            }
+        });
+
         ObservableList<Contract> list = FXCollections.observableArrayList(contractService
                 .getAll());
 
@@ -161,6 +173,7 @@ public class ContractManagment {
 
     @FXML
     void onEditContractButtonClick(ActionEvent event) {
+        editContract.setContract(findContractTableView.getSelectionModel().getSelectedItem());
         Parent root = fxWeaver.loadView(EditContract.class);
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();

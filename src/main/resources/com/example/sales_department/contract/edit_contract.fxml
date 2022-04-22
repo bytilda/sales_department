@@ -60,8 +60,8 @@
             <Font size="15.0" />
          </font></Text>
       <TextField fx:id="closingCityTextField" layoutX="55.0" layoutY="292.0" />
-      <TextField fx:id="consigneerAddressTextField" layoutX="287.0" layoutY="292.0" prefHeight="25.0" prefWidth="174.0" />
       <TextField fx:id="contractNumberTextField" layoutX="55.0" layoutY="97.0" prefHeight="25.0" prefWidth="149.0" />
       <ComboBox fx:id="contractorComboBox" layoutX="56.0" layoutY="158.0" onAction="#onContractorComboBoxAction" prefWidth="150.0" />
+      <ComboBox fx:id="consigneerAddressComboBox" layoutX="287.0" layoutY="292.0" onAction="#onConsigneerAddressComboBoxAction" prefHeight="25.0" prefWidth="174.0" />
    </children>
 </AnchorPane>
