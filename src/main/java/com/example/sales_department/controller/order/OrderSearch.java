@@ -1,22 +1,22 @@
 package com.example.sales_department.controller.order;
 
 import com.example.sales_department.controller.HelloController;
+import com.example.sales_department.entity.Contract;
 import com.example.sales_department.entity.Order;
 import com.example.sales_department.service.ContractService;
+import com.example.sales_department.service.CustomerService;
 import com.example.sales_department.service.OrderService;
+import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
@@ -26,6 +26,7 @@ import org.springframework.stereotype.Component;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @FxmlView("/com/example/sales_department/order/order_search.fxml")
@@ -34,6 +35,10 @@ public class OrderSearch {
     FxWeaver fxWeaver;
     @Autowired
     OrderService orderService;
+    @Autowired
+    OrderEdit orderEdit;
+    @Autowired
+    CustomerService customerService;
 
     @FXML
     private Button addOrderButton;
@@ -108,6 +113,52 @@ public class OrderSearch {
     private Button viewOrderButton;
 
     @FXML
+    public void initialize() {
+
+        editOrderButton.setDisable(true);
+        orderTableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                editOrderButton.setDisable(false);
+            }
+            else {
+                editOrderButton.setDisable(true);
+            }
+        });
+
+        ObservableList<Order> list = FXCollections.observableArrayList(orderService.getAll());
+
+        numberOrderTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getOrderNumber().toString()));
+        dateReceiveTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getReceiptDay().toString()));
+        contractorTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getIdSpecification().getIdContract().getIdCustomer().getOrganizationName()));
+        contractNumberTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getIdSpecification().getIdContract().getContractNumber().toString()));
+        startShipmentTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getDeliveryBegin().toString()));
+        endShipmentTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getDeliveryFinish().toString()));
+
+        orderTableView.setItems(list);
+
+        contractorComboBox.setEditable(true);
+        ObservableList<String> data = FXCollections.observableArrayList(
+                customerService.getAll().stream().map(customer -> customer.getInn().toString()).collect(Collectors.toList()));
+        FilteredList<String> filteredItems = new FilteredList<String>(data, p -> true);
+        contractorComboBox.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
+            final TextField editor = contractorComboBox.getEditor();
+            final String selected = contractorComboBox.getSelectionModel().getSelectedItem();
+            Platform.runLater(() -> {
+                if (selected == null || !selected.equals(editor.getText())) {
+                    filteredItems.setPredicate(item -> {
+                        if (item.toUpperCase().startsWith(newValue.toUpperCase())) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
+                }
+            });
+        });
+        contractorComboBox.setItems(filteredItems);
+    }
+
+    @FXML
     void onAddOrderButtonClick(ActionEvent event) {
         Parent root = fxWeaver.loadView(OrderAdd.class);
         Scene scene = new Scene(root);
@@ -129,6 +180,7 @@ public class OrderSearch {
 
     @FXML
     void onEditOrderButtonClick(ActionEvent event) {
+        orderEdit.setOrder(orderTableView.getSelectionModel().getSelectedItem());
         Parent root = fxWeaver.loadView(OrderEdit.class);
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();

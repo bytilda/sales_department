@@ -9,25 +9,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="850.0" prefWidth="979.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.order.OrderEdit">
+<AnchorPane prefHeight="644.0" prefWidth="979.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sales_department.controller.order.OrderEdit">
     <children>
         <Label layoutX="334.0" layoutY="14.0" text="Редактирование заказа">
             <font>
                 <Font size="29.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="125.0" layoutY="65.0" prefHeight="461.0" prefWidth="754.0">
+        <AnchorPane layoutX="130.0" layoutY="65.0" prefHeight="461.0" prefWidth="754.0">
             <children>
-                <Label layoutX="167.0" layoutY="14.0" text="Покупатель">
+                <Label layoutX="60.0" layoutY="14.0" text="Покупатель">
                <font>
                   <Font size="15.0" />
                </font></Label>
-                <ComboBox fx:id="customerComboBox" layoutX="167.0" layoutY="31.0" onAction="#onCustomerComboBoxAction" prefWidth="150.0" />
-                <Label layoutX="364.0" layoutY="14.0" text="Спецификация">
+                <ComboBox fx:id="customerComboBox" layoutX="60.0" layoutY="31.0" onAction="#onCustomerComboBoxAction" prefWidth="150.0" />
+                <Label layoutX="491.0" layoutY="14.0" text="Спецификация">
                <font>
                   <Font size="15.0" />
                </font></Label>
-                <ComboBox fx:id="specificationComboBox" layoutX="365.0" layoutY="31.0" onAction="#onSpecificationComboBoxAction" prefWidth="150.0" />
+                <ComboBox fx:id="specificationComboBox" layoutX="491.0" layoutY="31.0" onAction="#onSpecificationComboBoxAction" prefWidth="150.0" />
                 <Label layoutX="167.0" layoutY="67.0" text="Начало поставки">
                <font>
                   <Font size="15.0" />
@@ -57,6 +57,12 @@
                <font>
                   <Font size="15.0" />
                </font></Button>
+            <ComboBox fx:id="contractNumberComboBox" layoutX="285.0" layoutY="31.0" onAction="#onContractNumberComboBoxAction" prefWidth="150.0" />
+            <Label layoutX="285.0" layoutY="14.0" text="Договор">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
         <Button fx:id="confirmEditOrderButton" layoutX="136.0" layoutY="526.0" mnemonicParsing="false" onAction="#onConfirmEditOrderButtonClick" text="Сохранить изменения">
