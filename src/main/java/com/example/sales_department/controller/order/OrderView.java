@@ -1,6 +1,12 @@
 package com.example.sales_department.controller.order;
 
 import com.example.sales_department.controller.HelloController;
+import com.example.sales_department.entity.Customer;
+import com.example.sales_department.entity.Order;
+import com.example.sales_department.service.OrderService;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -21,18 +27,20 @@ import org.springframework.stereotype.Component;
 public class OrderView {
     @Autowired
     FxWeaver fxWeaver;
+    @Autowired
+    OrderService orderService;
 
     @FXML
     private Button addOrderButton;
 
     @FXML
-    private TableColumn<?, ?> contractorTableColumn;
+    private TableColumn<Order, String> contractorTableColumn;
 
     @FXML
-    private TableColumn<?, ?> dateReceiveTableColumn;
+    private TableColumn<Order, String> dateReceiveTableColumn;
 
     @FXML
-    private TableColumn<?, ?> endShipmentTableColumn;
+    private TableColumn<Order, String> endShipmentTableColumn;
 
     @FXML
     private Button exitButton;
@@ -41,16 +49,31 @@ public class OrderView {
     private Button findOrderButton;
 
     @FXML
-    private TableColumn<?, ?> numberOrderTableColumn;
+    private TableColumn<Order, String> numberOrderTableColumn;
 
     @FXML
-    private TableColumn<?, ?> startShipmentTableColumn;
+    private TableColumn<Order, String> startShipmentTableColumn;
 
     @FXML
     private Label viewOrderLabel;
 
     @FXML
-    private TableView<?> viewOrderTableView;
+    private TableView<Order> viewOrderTableView;
+
+    @FXML
+    public void initialize() {
+
+        ObservableList<Order> list = FXCollections.observableArrayList(orderService
+                .getAll());
+
+        startShipmentTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getDeliveryBegin().toString()));
+        numberOrderTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getOrderNumber().toString()));
+        endShipmentTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getDeliveryFinish().toString()));
+        dateReceiveTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getReceiptDay().toString()));
+        contractorTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getIdSpecification().getIdContract().getIdCustomer().getOrganizationName()));
+
+        viewOrderTableView.setItems(list);
+    }
 
     @FXML
     void onAddOrderButtonClick(ActionEvent event) {
