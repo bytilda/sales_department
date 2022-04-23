@@ -1,6 +1,13 @@
 package com.example.sales_department.controller.realization;
 
 import com.example.sales_department.controller.HelloController;
+import com.example.sales_department.entity.Order;
+import com.example.sales_department.entity.Realization;
+import com.example.sales_department.service.OrderService;
+import com.example.sales_department.service.RealizationService;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -21,36 +28,38 @@ import org.springframework.stereotype.Component;
 public class RealizationView {
     @Autowired
     FxWeaver fxWeaver;
+    @Autowired
+    RealizationService realizationService;
 
     @FXML
     private Label viewRealizeText;
 
     @FXML
-    private TableView<?> viewRealizeTableView;
+    private TableView<Realization> viewRealizeTableView;
 
     @FXML
-    private TableColumn<?, ?> numberUPDTableColumn;
+    private TableColumn<Realization, String> numberUPDTableColumn;
 
     @FXML
-    private TableColumn<?, ?> dateTableColumn;
+    private TableColumn<Realization, String> dateTableColumn;
 
     @FXML
-    private TableColumn<?, ?> contractorTableColumn;
+    private TableColumn<Realization, String> contractorTableColumn;
 
     @FXML
-    private TableColumn<?, ?> statusTableColumn;
+    private TableColumn<Realization, String> statusTableColumn;
 
     @FXML
-    private TableColumn<?, ?> adressTableColumn;
+    private TableColumn<Realization, String> adressTableColumn;
 
     @FXML
-    private TableColumn<?, ?> timeShipmentTableColumn;
+    private TableColumn<Realization, String> timeShipmentTableColumn;
 
     @FXML
-    private TableColumn<?, ?> dateReceiveTableColumn;
+    private TableColumn<Realization, String> dateReceiveTableColumn;
 
     @FXML
-    private TableColumn<?, ?> priceTableColumn;
+    private TableColumn<Realization, String> priceTableColumn;
 
     @FXML
     private Button findRealizeButton;
@@ -63,6 +72,24 @@ public class RealizationView {
 
     @FXML
     private Button addRealizationButton;
+
+    @FXML
+    public void initialize() {
+
+        ObservableList<Realization> list = FXCollections.observableArrayList(realizationService
+                .getAll());
+
+//        priceTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue()..toString()));
+        dateReceiveTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getReceivingDate().toString()));
+        timeShipmentTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getFactedTimeOfShipment().toString()));
+        adressTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getConsigneeAddress().toString()));
+        statusTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getPaymentStatus().toString()));
+        dateTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getDate().toString()));
+        contractorTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getIdOrder().getIdSpecification().getIdContract().getIdCustomer().getOrganizationName()));
+        numberUPDTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getUpdNumber().toString()));
+
+        viewRealizeTableView.setItems(list);
+    }
 
     @FXML
     void onExitButtonClick(ActionEvent event) {
