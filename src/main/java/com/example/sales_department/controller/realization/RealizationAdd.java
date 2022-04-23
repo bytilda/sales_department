@@ -1,6 +1,15 @@
 package com.example.sales_department.controller.realization;
 
 import com.example.sales_department.controller.HelloController;
+import com.example.sales_department.entity.ProductList;
+import com.example.sales_department.entity.ProductNomenclature;
+import com.example.sales_department.service.ProductListInSpecificationService;
+import com.example.sales_department.service.RealizationService;
+import com.example.sales_department.service.SpecificationService;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -13,18 +22,27 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.converter.LongStringConverter;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.math.BigDecimal;
+import java.util.Objects;
 
 @Component
 @FxmlView("/com/example/sales_department/realization/realization_add.fxml")
 public class RealizationAdd {
     @Autowired
     FxWeaver fxWeaver;
+    @Autowired
+    RealizationService realizationService;
+    @Autowired
+    ProductListInSpecificationService productListInSpecificationService;
 
     @FXML
     private Label addRealizeLabel;
@@ -48,25 +66,25 @@ public class RealizationAdd {
     private Label listProductLabel;
 
     @FXML
-    private TableView<?> listProductTableView;
+    private TableView<ProductList> listProductTableView;
 
     @FXML
-    private TableColumn<?, ?> codeProductTableColumn;
+    private TableColumn<ProductList, String> codeProductTableColumn;
 
     @FXML
-    private TableColumn<?, ?> nameProductTableColumn;
+    private TableColumn<ProductList, String> nameProductTableColumn;
 
     @FXML
-    private TableColumn<?, ?> unitTableColumn;
+    private TableColumn<ProductList, String> unitTableColumn;
 
     @FXML
-    private TableColumn<?, ?> amountTableColumn;
+    private TableColumn<ProductList, Long> amountTableColumn;
 
     @FXML
-    private TableColumn<?, ?> priceTableColumn;
+    private TableColumn<ProductList, String> priceTableColumn;
 
     @FXML
-    private TableColumn<?, ?> fullPriceTableColumn;
+    private TableColumn<ProductList, String> fullPriceTableColumn;
 
     @FXML
     private Label sumLabel;
@@ -118,6 +136,9 @@ public class RealizationAdd {
 
     @FXML
     private Button ExitButton;
+
+    ObservableList<ProductList> products = FXCollections.observableArrayList();
+
 
     @FXML
     void onAddProductInOrderButtonClick(ActionEvent event) {
@@ -179,5 +200,29 @@ public class RealizationAdd {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void deleteProduct(ProductNomenclature productNomenclature){
+        for(int i = 0; i < products.size(); i++){
+            if(products.get(i).getIdProduct().getId().equals(productNomenclature.getId())){
+                products.remove(i);
+                break;
+            }
+        }
+    }
+
+    public void addProduct(ProductNomenclature productNomenclature){
+        boolean isExist = false;
+        for(ProductList productList: products){
+            if(Objects.equals(productList.getIdProduct().getId(), productNomenclature.getId())){
+                isExist = true;
+                break;
+            }
+        }
+        if(!isExist)
+            products.add(ProductList.builder().idProduct(productNomenclature).build());
+        listProductTableView.refresh();
+    }
+
+
 
 }
