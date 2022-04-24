@@ -25,9 +25,6 @@ public class ContractService {
 
     public List<Contract> getAllCustomerId(Customer customerId) {return contractRepository.findAllByIdCustomer(customerId);}
 
-    public List<Contract> getAllByCustomerInn(BigInteger inn){
-        return getAllByCustomerInn(inn);
-    }
 
     public Contract getByContractNumber(Long number){
         return contractRepository.findByContractNumber(number);

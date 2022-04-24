@@ -28,7 +28,7 @@ public class Order {
     @Column(name = "delivery_finish", nullable = false)
     private LocalDate deliveryFinish;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_specification", nullable = false)
     private Specification idSpecification;
 

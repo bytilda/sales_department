@@ -1,9 +1,6 @@
 package com.example.sales_department.service;
 
-import com.example.sales_department.entity.Contract;
-import com.example.sales_department.entity.Customer;
 import com.example.sales_department.entity.Order;
-import com.example.sales_department.repository.ContractRepository;
 import com.example.sales_department.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +15,7 @@ public class OrderService {
     OrderRepository orderRepository;
 
     public void add(Order order){
-        orderRepository.saveAndFlush(order);
+        orderRepository.save(order);
     }
 
 
@@ -26,7 +23,7 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
-    public List<Order> findByAll(BigInteger inn, Long specification, LocalDate startShipment, LocalDate endShipment, Long contractNumber){
+    public List<Order> findByAll(BigInteger inn, Long specification, LocalDate startShipment, LocalDate endShipment, Long contractNumber, LocalDate receiveDate){
         List<Order> orders = orderRepository.findAll();
 
         for (int i = 0; i < orders.size(); ){
@@ -56,6 +53,12 @@ public class OrderService {
             }
             if (contractNumber != null){
                 if (!orders.get(i).getIdSpecification().getIdContract().getContractNumber().equals(contractNumber)){
+                    orders.remove(i);
+                    continue;
+                }
+            }
+            if (receiveDate != null){
+                if(!orders.get(i).getReceiptDay().equals(receiveDate)){
                     orders.remove(i);
                     continue;
                 }

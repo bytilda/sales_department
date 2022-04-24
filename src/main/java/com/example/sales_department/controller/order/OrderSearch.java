@@ -1,11 +1,9 @@
 package com.example.sales_department.controller.order;
 
 import com.example.sales_department.controller.HelloController;
-import com.example.sales_department.entity.Contract;
-import com.example.sales_department.entity.Order;
-import com.example.sales_department.service.ContractService;
-import com.example.sales_department.service.CustomerService;
-import com.example.sales_department.service.OrderService;
+import com.example.sales_department.controller.Utils;
+import com.example.sales_department.entity.*;
+import com.example.sales_department.service.*;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -36,9 +34,25 @@ public class OrderSearch {
     @Autowired
     OrderService orderService;
     @Autowired
-    OrderEdit orderEdit;
-    @Autowired
     CustomerService customerService;
+    @Autowired
+    ContractService contractService;
+    @Autowired
+    SpecificationService specificationService;
+    @Autowired
+    ProductListInSpecificationService productListInSpecificationService;
+    @Autowired
+    ProductListInOrderService productListInOrderService;
+
+    @Autowired
+    OrderEdit orderEdit;
+
+    Customer currentCustomer;
+    List<Contract> contracts;
+    Contract currentContract;
+    List<Specification> specifications;
+    Specification currentSpecification;
+
 
     @FXML
     private Button addOrderButton;
@@ -72,6 +86,9 @@ public class OrderSearch {
 
     @FXML
     private TableColumn<Order, String> endShipmentTableColumn;
+
+    @FXML
+    private DatePicker receiveDateDatePicker;
 
     @FXML
     private Button exitButton;
@@ -139,23 +156,8 @@ public class OrderSearch {
         contractorComboBox.setEditable(true);
         ObservableList<String> data = FXCollections.observableArrayList(
                 customerService.getAll().stream().map(customer -> customer.getInn().toString()).collect(Collectors.toList()));
-        FilteredList<String> filteredItems = new FilteredList<String>(data, p -> true);
-        contractorComboBox.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
-            final TextField editor = contractorComboBox.getEditor();
-            final String selected = contractorComboBox.getSelectionModel().getSelectedItem();
-            Platform.runLater(() -> {
-                if (selected == null || !selected.equals(editor.getText())) {
-                    filteredItems.setPredicate(item -> {
-                        if (item.toUpperCase().startsWith(newValue.toUpperCase())) {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    });
-                }
-            });
-        });
-        contractorComboBox.setItems(filteredItems);
+
+        Utils.addFilter(data, contractorComboBox);
     }
 
     @FXML
@@ -170,12 +172,37 @@ public class OrderSearch {
 
     @FXML
     void onContractComboBoxAction(ActionEvent event) {
-
+        Long contractNumber = Long.parseLong(contractComboBox.getValue());
+        Contract contract = contractService.getByContractNumber(contractNumber);
+        currentContract = contract;
+        if (contract != null) {
+            specificationComboBox.setEditable(true);
+            specificationComboBox.setDisable(false);
+            specifications = specificationService.getAllByContract(contract);
+            ObservableList<String> data = FXCollections.observableArrayList(
+                    specifications.stream().map(s -> s.getApplicationNumber().toString()).collect(Collectors.toList()));
+            Utils.addFilter(data, specificationComboBox);
+        }
+        else{
+            specificationComboBox.setDisable(true);
+        }
     }
 
     @FXML
     void onContractorComboBoxAction(ActionEvent event) {
-
+        Customer customer = customerService.getByInn(new BigInteger(contractorComboBox.getValue()));
+        currentCustomer = customer;
+        if(customer != null) {
+            contractComboBox.setEditable(true);
+            contracts = contractService.getAllCustomerId(customer);
+            ObservableList<String> data = FXCollections.observableArrayList(
+                    contracts.stream().map(contract -> contract.getContractNumber().toString()).collect(Collectors.toList()));
+            Utils.addFilter(data, contractComboBox);
+        }
+        else{
+            contractComboBox.setDisable(true);
+            specificationComboBox.setDisable(true);
+        }
     }
 
     @FXML
@@ -224,6 +251,12 @@ public class OrderSearch {
             endShipmentDatePicker.setValue(null);
         }
 
+        LocalDate receiveDate = null;
+        if (receiveDateDatePicker.getValue() != null){
+            receiveDate = receiveDateDatePicker.getValue();
+            receiveDateDatePicker.setValue(null);
+        }
+
         Long specification = null;
         if ((specificationComboBox.getValue() != null) && (!specificationComboBox.getValue().isEmpty())){
             specification = Long.parseLong(specificationComboBox.getValue());
@@ -233,7 +266,7 @@ public class OrderSearch {
             contractNumber = Long.parseLong(contractComboBox.getValue());
         }
 
-        List<Order> orders = orderService.findByAll(inn, specification, startShipment, endShipment, contractNumber);
+        List<Order> orders = orderService.findByAll(inn, specification, startShipment, endShipment, contractNumber, receiveDate);
 
         ObservableList<Order> tableItems = FXCollections.observableArrayList(orders);
         orderTableView.setItems(tableItems);
@@ -243,7 +276,13 @@ public class OrderSearch {
 
     @FXML
     void onSpecificationComboBoxAction(ActionEvent event) {
-
+        Long specificationNumber = Long.parseLong(specificationComboBox.getValue());
+        currentSpecification = null;
+        for(Specification specification: specifications){
+            if(specificationNumber.equals(specification.getApplicationNumber())){
+                currentSpecification = specification;
+            }
+        }
     }
 
     @FXML
