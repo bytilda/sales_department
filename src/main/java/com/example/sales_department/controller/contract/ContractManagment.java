@@ -1,14 +1,12 @@
 package com.example.sales_department.controller.contract;
 
+import com.example.sales_department.controller.Utils;
 import com.example.sales_department.entity.Contract;
-import com.example.sales_department.entity.Customer;
 import com.example.sales_department.service.ContractService;
 import com.example.sales_department.service.CustomerService;
-import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -129,23 +127,7 @@ public class ContractManagment {
         contractorComboBox.setEditable(true);
         ObservableList<String> data = FXCollections.observableArrayList(
                 customerService.getAll().stream().map(customer -> customer.getInn().toString()).collect(Collectors.toList()));
-        FilteredList<String> filteredItems = new FilteredList<String>(data, p -> true);
-        contractorComboBox.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
-            final TextField editor = contractorComboBox.getEditor();
-            final String selected = contractorComboBox.getSelectionModel().getSelectedItem();
-            Platform.runLater(() -> {
-                if (selected == null || !selected.equals(editor.getText())) {
-                    filteredItems.setPredicate(item -> {
-                        if (item.toUpperCase().startsWith(newValue.toUpperCase())) {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    });
-                }
-            });
-        });
-        contractorComboBox.setItems(filteredItems);
+        Utils.addFilter(data, contractorComboBox);
     }
 
     @FXML

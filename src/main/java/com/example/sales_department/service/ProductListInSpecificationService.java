@@ -19,4 +19,8 @@ public class ProductListInSpecificationService {
     public List<ProductList> getALLBySpecificationId(Long specificationId){
         return productListInSpecificationRepository.findAllById_IdSpecification(specificationId);
     }
+
+    public List<ProductList> getAllBySpecificationId(Long id){
+        return productListInSpecificationRepository.findAllById_IdSpecification(id);
+    }
 }

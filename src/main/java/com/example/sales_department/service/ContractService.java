@@ -25,6 +25,14 @@ public class ContractService {
 
     public List<Contract> getAllCustomerId(Customer customerId) {return contractRepository.findAllByIdCustomer(customerId);}
 
+    public List<Contract> getAllByCustomerInn(BigInteger inn){
+        return getAllByCustomerInn(inn);
+    }
+
+    public Contract getByContractNumber(Long number){
+        return contractRepository.findByContractNumber(number);
+    }
+
     public List<Contract> findByAll(Long contractNumber, LocalDate conclusionDate, BigInteger inn, LocalDate validFrom, LocalDate validUntil, String city){
         List<Contract> contracts = contractRepository.findAll();
 

@@ -17,12 +17,12 @@ public class ProductList {
     private ProductListId id;
 
     @MapsId("idSpecification")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_specification", nullable = false)
     private Specification idSpecification;
 
     @MapsId("idProduct")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_product", nullable = false)
     private ProductNomenclature idProduct;
 

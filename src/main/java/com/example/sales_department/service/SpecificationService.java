@@ -20,4 +20,8 @@ public class SpecificationService {
     public List<Specification> getAll(){
         return specificationRepository.findAll();
     }
+
+    public List<Specification> getAllByContract(Contract contract){
+        return specificationRepository.findAllByIdContract(contract);
+    }
 }

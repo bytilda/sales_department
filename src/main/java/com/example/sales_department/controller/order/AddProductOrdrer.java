@@ -1,5 +1,11 @@
 package com.example.sales_department.controller.order;
 
+import com.example.sales_department.entity.ProductNomenclature;
+import com.example.sales_department.service.ProductNomenclatureService;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -13,6 +19,7 @@ import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -21,6 +28,11 @@ public class AddProductOrdrer {
 
     @Autowired
     FxWeaver fxWeaver;
+
+    @Autowired
+    ProductNomenclatureService productNomenclatureService;
+
+    OrderAdd orderAdd;
 
     @FXML
     private AnchorPane addProductInOrderAnchorPane;
@@ -35,36 +47,49 @@ public class AddProductOrdrer {
     private Button deleteProductFromOrderButton;
 
     @FXML
-    private TableView<?> nomenclatureProductTableView;
+    private TableView<ProductNomenclature> nomenclatureProductTableView;
 
     @FXML
-    private TableColumn<?, ?> productCipherTableColumn;
+    private TableColumn<ProductNomenclature, Long> productCipherTableColumn;
 
     @FXML
-    private TableColumn<?, ?> productNameTableColumn;
+    private TableColumn<ProductNomenclature, String> productNameTableColumn;
 
     @FXML
-    private TableColumn<?, ?> weightTableColumn;
+    private TableColumn<ProductNomenclature, Long> weightTableColumn;
+
+    @FXML
+    public void initialize(){
+        ObservableList<ProductNomenclature> products = FXCollections.observableArrayList(productNomenclatureService.getAll());
+
+        productCipherTableColumn.setCellValueFactory(cd -> new SimpleLongProperty(cd.getValue().getProductCipher()).asObject());
+        productNameTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getProductName()));
+        weightTableColumn.setCellValueFactory(cd -> new SimpleLongProperty(cd.getValue().getWeight()).asObject());
+
+        nomenclatureProductTableView.setItems(products);
+    }
 
     @FXML
     void onAddProductInOrderButtonClick(ActionEvent event) {
-
-
+        if(nomenclatureProductTableView.getSelectionModel().getSelectedItem() != null)
+            orderAdd.addProduct(nomenclatureProductTableView.getSelectionModel().getSelectedItem());
     }
 
     @FXML
     void onCancelButtonClick(ActionEvent event) {
-        Parent root = fxWeaver.loadView(OrderAdd.class);
-        Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-
+        stage.close();
     }
 
     @FXML
     void onDeleteProductFromOrderButtonClick(ActionEvent event) {
+        if(nomenclatureProductTableView.getSelectionModel().getSelectedItem() != null)
+            orderAdd.deleteProduct(nomenclatureProductTableView.getSelectionModel().getSelectedItem());
+    }
 
+    @Autowired
+    public void setAddSpecification(@Lazy OrderAdd orderAdd) {
+        this.orderAdd = orderAdd;
     }
 
 }

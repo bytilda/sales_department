@@ -36,9 +36,6 @@ public class AddProductInSpecification {
 
     AddSpecification addSpecification;
 
-    @Setter
-    Map<Long, ProductNomenclature> products;
-
     @FXML
     private AnchorPane addProductInOrderAnchorPane;
 

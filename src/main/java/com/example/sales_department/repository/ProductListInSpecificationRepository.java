@@ -9,6 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ProductListInSpecificationRepository extends JpaRepository<ProductList, ProductListId> {
-
     List<ProductList> findAllById_IdSpecification(Long id);
 }

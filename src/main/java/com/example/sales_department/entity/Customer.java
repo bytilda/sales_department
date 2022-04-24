@@ -6,6 +6,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "customer", schema = "sales_department_db", indexes = {
@@ -42,5 +44,8 @@ public class Customer {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "legal_address", nullable = false)
     private Fia legalAddress;
+
+    @OneToMany(mappedBy = "idCustomer", fetch = FetchType.EAGER)
+    private Set<Contract> contracts = new LinkedHashSet<>();
 
 }

@@ -1,6 +1,7 @@
 package com.example.sales_department.entity;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "product_list_in_realization", schema = "sales_department_db")
@@ -20,6 +21,17 @@ public class ProductListInRealization {
 
     @Column(name = "amount", nullable = false)
     private Long amount;
+
+    @Column(name = "price", nullable = false, precision = 20, scale = 2)
+    private BigDecimal price;
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 
     public Long getAmount() {
         return amount;
