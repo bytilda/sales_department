@@ -37,21 +37,21 @@
                <font>
                   <Font size="15.0" />
                </font></Label>
-                <TableView fx:id="listProductTableView" layoutX="8.0" layoutY="195.0" prefHeight="337.0" prefWidth="789.0">
+                <TableView fx:id="listProductTableView" editable="true" layoutX="8.0" layoutY="195.0" prefHeight="337.0" prefWidth="789.0">
                     <columns>
                         <TableColumn fx:id="codeProductTableColumn" editable="false" prefWidth="95.0" text="Шифр товара" />
                         <TableColumn fx:id="nameProductTableColumn" editable="false" prefWidth="216.0" text="Наименование товара" />
-                  <TableColumn fx:id="unitTableColumn" prefWidth="104.0" text="Ед. измерения" />
+                  <TableColumn fx:id="unitTableColumn" editable="false" prefWidth="104.0" text="Ед. измерения" />
                         <TableColumn fx:id="amountTableColumn" minWidth="0.0" prefWidth="116.0" text="Количество" />
-                        <TableColumn fx:id="priceTableColumn" minWidth="3.0" prefWidth="123.0" text="Цена за единицу" />
+                        <TableColumn fx:id="priceTableColumn" editable="false" minWidth="3.0" prefWidth="123.0" text="Цена за единицу" />
                         <TableColumn fx:id="fullPriceTableColumn" editable="false" prefWidth="134.0" text="Стоимость" />
                     </columns>
                 </TableView>
-                <Label fx:id="sumLabel" layoutX="644.0" layoutY="533.0" text="ИТОГО">
+                <Label fx:id="sumLabel" layoutX="607.0" layoutY="535.0" text="ИТОГО">
                <font>
                   <Font size="15.0" />
                </font></Label>
-                <Label fx:id="digitLabel" layoutX="728.0" layoutY="535.0" prefHeight="17.0" prefWidth="55.0" text="0.00" textAlignment="RIGHT">
+                <Label fx:id="digitLabel" alignment="CENTER_RIGHT" layoutX="663.0" layoutY="535.0" prefHeight="21.0" prefWidth="134.0" text="0.00" textAlignment="RIGHT">
                <font>
                   <Font size="15.0" />
                </font></Label>
@@ -60,7 +60,7 @@
                   <Font size="15.0" />
                </font></Label>
             <ComboBox fx:id="adressLabelComboBox" layoutX="217.0" layoutY="112.0" onAction="#onAdressComboBoxAction" prefHeight="25.0" prefWidth="174.0" />
-            <ComboBox fx:id="numberOrderComboBox" layoutX="517.0" layoutY="79.0" onAction="#onNumberOrderComboBoxAction" prefHeight="25.0" prefWidth="174.0" />
+            <ComboBox fx:id="numberOrderComboBox" disable="true" layoutX="517.0" layoutY="79.0" onAction="#onNumberOrderComboBoxAction" prefHeight="25.0" prefWidth="174.0" />
             <Label fx:id="numberOrderLabel" layoutX="414.0" layoutY="81.0" text="Номер заказа">
                <font>
                   <Font size="15.0" />
@@ -81,9 +81,14 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <ComboBox fx:id="customerChoiceBox" layoutX="217.0" layoutY="79.0" prefHeight="25.0" prefWidth="174.0" />
+            <ComboBox fx:id="customerComboBox" editable="true" layoutX="217.0" layoutY="79.0" onAction="#onCustomerComboBoxAction" prefHeight="25.0" prefWidth="174.0" />
             <Label layoutX="304.0" layoutY="16.0" text="от" />
-            <Button fx:id="addProductInOrderButton" layoutX="10.0" layoutY="540.0" mnemonicParsing="false" onAction="#onAddProductInOrderButtonClick" prefHeight="25.0" prefWidth="174.0" text="Изменить список товаров" />
+            <Button fx:id="addProductInOrderButton" layoutX="10.0" layoutY="540.0" mnemonicParsing="false" onAction="#onAddProductInOrderButtonClick" prefHeight="25.0" prefWidth="174.0" text="Удалить товар из списка" />
+            <Label fx:id="organizationNameLabel" layoutX="215.0" layoutY="53.0" prefHeight="21.0" prefWidth="521.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
       <AnchorPane prefHeight="850.0" prefWidth="322.0">

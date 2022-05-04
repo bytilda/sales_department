@@ -16,14 +16,14 @@
         </Label>
       <TableView fx:id="viewRealizeTableView" layoutX="317.0" layoutY="113.0" prefHeight="653.0" prefWidth="1038.0">
         <columns>
-            <TableColumn fx:id="numberUPDTableColumn" prefWidth="73.0" text="Номер УПД" />
-          <TableColumn fx:id="dateTableColumn" prefWidth="87.0" text="Дата" />
-            <TableColumn fx:id="contractorTableColumn" prefWidth="157.0" text="Покупатель" />
-          <TableColumn fx:id="statusTableColumn" prefWidth="91.0" text="Статус оплаты" />
+            <TableColumn fx:id="numberUPDTableColumn" text="Номер УПД" />
+          <TableColumn fx:id="dateTableColumn" prefWidth="92.0" text="Дата" />
+            <TableColumn fx:id="contractorTableColumn" prefWidth="145.0" text="Покупатель" />
+          <TableColumn fx:id="statusTableColumn" prefWidth="91.0" text="Статус оплаты" visible="false" />
             <TableColumn fx:id="adressTableColumn" prefWidth="241.0" text="Адрес грузополучателя" />
             <TableColumn fx:id="timeShipmentTableColumn" prefWidth="136.0" text="Дата отгрузки" />
-            <TableColumn fx:id="dateReceiveTableColumn" prefWidth="121.0" text="Дата приёмки" />
-            <TableColumn fx:id="priceTableColumn" prefWidth="131.0" text="Стоимость товаров" />
+            <TableColumn fx:id="dateReceiveTableColumn" prefWidth="163.0" text="Дата приёмки" />
+            <TableColumn fx:id="priceTableColumn" prefWidth="180.0" text="Стоимость товаров" />
         </columns>
       </TableView>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="850.0" prefWidth="307.0">

@@ -5,7 +5,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -17,29 +16,19 @@
          <font>
             <Font size="30.0" />
          </font></Text>
-      <Text fx:id="filterText" layoutX="985.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фильтры" />
-      <TextArea fx:id="filterTextArea" layoutX="982.0" layoutY="38.0" prefHeight="218.0" prefWidth="329.0" />
+      <Text fx:id="filterText" layoutX="995.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фильтры" wrappingWidth="64.27734375">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
       <DatePicker fx:id="DateDatePicker" layoutX="997.0" layoutY="122.0" prefHeight="25.0" prefWidth="215.0" />
       <TextField fx:id="numberUPDTextField" layoutX="997.0" layoutY="169.0" prefHeight="25.0" prefWidth="215.0" />
-      <Text fx:id="StatusText" layoutX="997.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Статус оплаты" />
+      <Text fx:id="StatusText" layoutX="997.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Статус оплаты" visible="false" />
       <Text fx:id="numberUPDText" layoutX="996.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер УПД" />
       <Text fx:id="dateText" layoutX="997.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата" />
-      <ComboBox fx:id="statusComboBox" layoutX="997.0" layoutY="80.0" onAction="#onStatusComboBoxAction" prefHeight="25.0" prefWidth="215.0" />
+      <ComboBox fx:id="statusComboBox" layoutX="997.0" layoutY="80.0" onAction="#onStatusComboBoxAction" prefHeight="25.0" prefWidth="215.0" visible="false" />
       <ComboBox fx:id="contractorComboBox" layoutX="997.0" layoutY="216.0" onAction="#onContractorComboBoxAction" prefHeight="25.0" prefWidth="215.0" />
       <Text fx:id="contractorText" layoutX="996.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Покупатель" />
       <Button fx:id="findButton" layoutX="1240.0" layoutY="216.0" mnemonicParsing="false" onAction="#onFindButtonClick" text="поиск" />
-      <TableView fx:id="viewRealizeTableView" layoutX="287.0" layoutY="277.0" prefHeight="509.0" prefWidth="1024.0">
-         <columns>
-            <TableColumn fx:id="numberUPDTableColumn1" prefWidth="73.0" text="Номер УПД" />
-            <TableColumn fx:id="dateTableColumn" prefWidth="87.0" text="Дата" />
-            <TableColumn fx:id="contractorTableColumn1" prefWidth="157.0" text="Покупатель" />
-            <TableColumn fx:id="statusTableColumn1" prefWidth="91.0" text="Статус оплаты" />
-            <TableColumn fx:id="adressTableColumn1" prefWidth="217.0" text="Адрес грузополучателя" />
-            <TableColumn fx:id="timeShipmentTableColumn1" prefWidth="135.0" text="Дата отгрузки" />
-            <TableColumn fx:id="dateReceiveTableColumn1" prefWidth="123.0" text="Дата приёмки" />
-            <TableColumn fx:id="priceTableColumn" prefWidth="154.0" text="Стоимость товаров" />
-         </columns>
-      </TableView>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="850.0" prefWidth="271.0">
          <children>
             <Button fx:id="addRealizationButton" layoutX="31.0" layoutY="103.0" mnemonicParsing="false" onAction="#onAddRealizationButtonClick" prefHeight="70.0" prefWidth="230.0" text="Добавление реализации">
@@ -69,5 +58,17 @@
             <Font size="15.0" />
          </font>
       </Button>
+      <TableView fx:id="viewRealizeTableView" layoutX="287.0" layoutY="265.0" prefHeight="508.0" prefWidth="1024.0">
+         <columns>
+            <TableColumn fx:id="numberUPDTableColumn" text="Номер УПД" />
+            <TableColumn fx:id="dateTableColumn" prefWidth="92.0" text="Дата" />
+            <TableColumn fx:id="contractorTableColumn" prefWidth="145.0" text="Покупатель" />
+            <TableColumn fx:id="statusTableColumn" prefWidth="91.0" text="Статус оплаты" visible="false" />
+            <TableColumn fx:id="adressTableColumn" prefWidth="241.0" text="Адрес грузополучателя" />
+            <TableColumn fx:id="timeShipmentTableColumn" prefWidth="136.0" text="Дата отгрузки" />
+            <TableColumn fx:id="dateReceiveTableColumn" prefWidth="163.0" text="Дата приёмки" />
+            <TableColumn fx:id="priceTableColumn" prefWidth="180.0" text="Стоимость товаров" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

@@ -1,24 +1,43 @@
 package com.example.sales_department.service;
 
+import com.example.sales_department.entity.Contract;
+import com.example.sales_department.entity.Customer;
 import com.example.sales_department.entity.Order;
+import com.example.sales_department.entity.Specification;
 import com.example.sales_department.repository.OrderRepository;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class OrderService {
     @Autowired
     OrderRepository orderRepository;
+    @Autowired
+    CustomerService customerService;
+    @Autowired
+    ContractService contractService;
 
     public void add(Order order){
         orderRepository.save(order);
     }
 
-
+    public List<Order> getAllByCustomerInn(BigInteger customerInn){
+        Customer customer = customerService.getByInn(customerInn);
+        List<Contract> contracts = contractService.getAllCustomerId(customer);
+        List<Order> orders = new ArrayList<>();
+        for(Contract contract: contracts){
+            for(Specification specification: contract.getSpecifications()){
+                orders.addAll(specification.getOrders());
+            }
+        }
+        return orders;
+    }
     public List<Order> getAll(){
         return orderRepository.findAll();
     }

@@ -15,7 +15,7 @@ public class ProductListInRealization {
     private Realization idRealization;
 
     @MapsId("idProduct")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_product", nullable = false)
     private ProductNomenclature idProduct;
 

@@ -25,7 +25,7 @@ public class Specification {
     @Column(name = "is_terminated")
     private Boolean isTerminated;
 
-    @OneToMany(mappedBy = "idSpecification")
+    @OneToMany(mappedBy = "idSpecification", fetch = FetchType.EAGER)
     private Set<Order> orders = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "idSpecification")

@@ -17,16 +17,10 @@ public class RealizationService {
 
     public List<Realization> getAll(){return realizationRepository.findAll();}
 
-    public List<Realization> findByAll(String status, LocalDate date, Long numberUPD, BigInteger inn){
+    public List<Realization> findByAll(LocalDate date, Long numberUPD, BigInteger inn){
 
         List<Realization> realizations = realizationRepository.findAll();
         for (int i = 0; i < realizations.size(); ){
-            if (status != null){
-                if(!realizations.get(i).getPaymentStatus().equals(status)){
-                    realizations.remove(i);
-                    continue;
-                }
-            }
             if (date != null){
                 if (!realizations.get(i).getDate().equals(date)){
                     realizations.remove(i);
@@ -48,5 +42,9 @@ public class RealizationService {
             i++;
         }
         return realizations;
+    }
+
+    public void add(Realization realization){
+        realizationRepository.save(realization);
     }
 }

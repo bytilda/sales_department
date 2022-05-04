@@ -80,8 +80,6 @@ public class RealizationChangeProduct {
     @FXML
     void onAddProductInOrderButtonClick(ActionEvent event) {
 
-        if(nomenclatureProductTableView.getSelectionModel().getSelectedItem() != null)
-            realizationAdd.addProduct(nomenclatureProductTableView.getSelectionModel().getSelectedItem());
     }
 
     @FXML

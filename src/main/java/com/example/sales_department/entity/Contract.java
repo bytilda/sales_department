@@ -37,7 +37,7 @@ public class Contract {
     @Column(name = "is_terminated")
     private Boolean isTerminated;
 
-    @OneToMany(mappedBy = "idContract")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "idContract")
     private Set<Specification> specifications = new LinkedHashSet<>();
 
     @Column(name = "city", nullable = false)

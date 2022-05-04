@@ -2,8 +2,10 @@ package com.example.sales_department.controller.realization;
 
 import com.example.sales_department.controller.HelloController;
 import com.example.sales_department.entity.Order;
+import com.example.sales_department.entity.ProductListInRealization;
 import com.example.sales_department.entity.Realization;
 import com.example.sales_department.service.OrderService;
+import com.example.sales_department.service.ProductListInRealizationService;
 import com.example.sales_department.service.RealizationService;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -23,6 +25,9 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 @Component
 @FxmlView("/com/example/sales_department/realization/realization_view.fxml")
 public class RealizationView {
@@ -30,6 +35,8 @@ public class RealizationView {
     FxWeaver fxWeaver;
     @Autowired
     RealizationService realizationService;
+    @Autowired
+    ProductListInRealizationService productListInRealizationService;
 
     @FXML
     private Label viewRealizeText;
@@ -75,7 +82,6 @@ public class RealizationView {
 
     @FXML
     public void initialize() {
-
         ObservableList<Realization> list = FXCollections.observableArrayList(realizationService
                 .getAll());
 
@@ -83,11 +89,20 @@ public class RealizationView {
         dateReceiveTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getReceivingDate().toString()));
         timeShipmentTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getFactedTimeOfShipment().toString()));
         adressTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getConsigneeAddress().toString()));
-        statusTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getPaymentStatus().toString()));
+        //statusTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getPaymentStatus().toString()));
         dateTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getDate().toString()));
         contractorTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getIdOrder().getIdSpecification().getIdContract().getIdCustomer().getOrganizationName()));
         numberUPDTableColumn.setCellValueFactory(cd -> new SimpleStringProperty(cd.getValue().getUpdNumber().toString()));
-
+        priceTableColumn.setCellValueFactory(cd -> {
+            BigDecimal total = new BigDecimal("0");
+            List<ProductListInRealization> products = productListInRealizationService.getAllByRealization(cd.getValue());
+            for(int i = 0; i < products.size(); i++){
+                BigDecimal price = products.get(i).getPrice();
+                BigDecimal amount = new BigDecimal(products.get(i).getAmount());
+                total = total.add(price.multiply(amount));
+            }
+            return new SimpleStringProperty(total.toString());
+        });
         viewRealizeTableView.setItems(list);
     }
 

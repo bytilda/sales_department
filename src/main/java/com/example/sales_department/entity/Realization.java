@@ -14,7 +14,7 @@ public class Realization {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_order")
     private Order idOrder;
 
@@ -22,7 +22,7 @@ public class Realization {
     private Boolean paymentStatus = false;
 
     @Column(name = "facted_time_of_shipment")
-    private Date factedTimeOfShipment;
+    private LocalDate factedTimeOfShipment;
 
     @Column(name = "upd_number", nullable = false)
     private Long updNumber;
@@ -30,7 +30,7 @@ public class Realization {
     @Column(name = "date", nullable = false)
     private LocalDate date;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "consignee_address", nullable = false)
     private Fia consigneeAddress;
 
@@ -80,11 +80,11 @@ public class Realization {
         this.updNumber = updNumber;
     }
 
-    public Date getFactedTimeOfShipment() {
+    public LocalDate getFactedTimeOfShipment() {
         return factedTimeOfShipment;
     }
 
-    public void setFactedTimeOfShipment(Date factedTimeOfShipment) {
+    public void setFactedTimeOfShipment(LocalDate factedTimeOfShipment) {
         this.factedTimeOfShipment = factedTimeOfShipment;
     }
 

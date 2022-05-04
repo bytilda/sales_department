@@ -19,7 +19,7 @@ public class ProductNomenclature {
     @Column(name = "weight")
     private Long weight;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "units")
     private Okei units;
 
